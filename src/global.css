@@ -1,0 +1,27 @@
+html {
+  min-height: 100%;
+  /* 10px */
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Optima", "Georgia", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+  font-size: 1.6rem;
+  color: #333;
+  background: linear-gradient(-135deg, #fbf7f1 20%, #c6e1f3);
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  color: #666;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+a:hover {
+  color: #446bd7;
+}
+
+ul {
+  list-style-type: none;
+}

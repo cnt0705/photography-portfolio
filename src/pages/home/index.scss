@@ -1,0 +1,96 @@
+.site-name {
+  margin: 0;
+  width: 100%;
+  padding: 80px 0 120px;
+  background: url('./img/title.jpg') no-repeat;
+  background-position-y: -220px;
+  background-size: cover;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  line-height: 1;
+  font-family: Optima;
+  font-size: 22rem;
+  text-align: center;
+  letter-spacing: 3rem;
+}
+
+.selfie {
+  width: 300px;
+  height: 400px;
+
+  > img {
+    width: 100%;
+  }
+}
+
+.about-us {
+  display: flex;
+  justify-content: space-between;
+  width: 700px;
+  margin: 0 auto;
+
+  &.shinya {
+    flex-direction: row-reverse;
+  }
+
+  &.chinatsu {
+    margin-top: -30px;
+  }
+}
+
+.introduction {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: flex-start;
+
+  .shinya & {
+    margin-right: 30px;
+  }
+
+  .chinatsu & {
+    margin-left: 30px;
+    justify-content: flex-end;
+    align-items: flex-end;
+    text-align: right;
+  }
+}
+
+.my-name-is {
+  margin-bottom: 20px;
+  font-size: 3rem;
+  letter-spacing: 0.5rem;
+}
+
+.comment {
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+}
+
+.move-to-works {
+  margin-bottom: 5px;
+  padding: 5px 0;
+  font-weight: bold;
+  font-size: 2.0rem;
+  letter-spacing: 0.3rem;
+}
+
+.sns-links {
+  display: flex;
+  margin: 0 -5px;
+
+  > li {
+    a {
+      padding: 0 5px;
+    }
+
+    i {
+      font-size: 2rem;
+    }
+  }
+
+  .chinatsu & {
+    justify-content: flex-end;
+  }
+}
