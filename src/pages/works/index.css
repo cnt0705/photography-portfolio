@@ -15,8 +15,8 @@
 
 .move-to-home {
   position: absolute;
-  top: 30px;
-  left: 30px;
+  top: 50px;
+  left: 50px;
   font-size: 4rem; }
 
 .gallery {
@@ -71,20 +71,35 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(255, 255, 255, 0.9); }
+  background: rgba(255, 255, 255, 0.95); }
 
 .light-box-content {
   position: absolute;
-  width: 90%;
+  width: 900px;
   top: 50%;
   left: 50%;
   text-align: center;
   transform: translate(-50%, -50%); }
 
+.light-box-control {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px; }
+  .light-box-control > li {
+    padding: 0px 10px;
+    color: #888;
+    line-height: 1; }
+    .light-box-control > li:last-child {
+      border-left: 1px solid currentColor; }
+    .light-box-control > li > button {
+      transition: 0.2s; }
+      .light-box-control > li > button:hover {
+        color: #333; }
+
 .light-box-close {
   position: absolute;
-  top: 30px;
-  right: 30px;
+  top: 50px;
+  right: 50px;
   width: 40px;
   height: 40px;
   text-indent: 100%;
@@ -99,7 +114,7 @@
     left: 0;
     width: 40px;
     height: 1px;
-    background-color: #666;
+    background-color: #888;
     transform: rotate(45deg);
     transition: 0.2s;
     content: ''; }

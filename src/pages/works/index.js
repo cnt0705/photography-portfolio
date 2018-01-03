@@ -44,8 +44,9 @@ class Works extends Component {
 
   componentWillMount() {
     const author = this.props.match.params.author;
-    const map = new Map();
-    map.set('shinya', [
+
+    const items = new Map();
+    items.set('shinya', [
       imgSny01,
       imgSny02,
       imgSny03,
@@ -59,7 +60,7 @@ class Works extends Component {
       imgSny11,
       imgSny12,
     ]);
-    map.set('chinatsu', [
+    items.set('chinatsu', [
       imgCnt01,
       imgCnt02,
       imgCnt03,
@@ -73,10 +74,15 @@ class Works extends Component {
       imgCnt11,
       imgCnt12
     ]);
-    if (!map.get(author)) return;
 
+    const insta = new Map();
+    insta.set('shinya', 'https://www.instagram.com/shnykt_46');
+    insta.set('chinatsu', 'https://www.instagram.com/cnt_kt');
+
+    if (!items.get(author) || !insta.get(author)) return;
     this.setState({ author: author });
-    this.setState({ galleryItems: map.get(author) });
+    this.setState({ galleryItems: items.get(author) });
+    this.setState({ instagram: insta.get(author) });
   }
 
   render() {
@@ -87,7 +93,8 @@ class Works extends Component {
             src={item}
             alt=""
             className="piece"
-            onClick={e => { this.openLightBox(e, index)}}/>
+            onClick={e => { this.openLightBox(e, index)}}
+            onContextMenu={e => { this.contextMenu(e) }}/>
         </li>
       );
     });
@@ -98,7 +105,20 @@ class Works extends Component {
           <div className="light-box-content">
             <img
               src={this.state.lightBox.src}
-              alt=""/>
+              alt=""
+              onContextMenu={e => { this.contextMenu(e) }}/>
+            <ul className="light-box-control">
+              <li>
+                <button
+                  type="button"
+                  onClick={e => { this.slideImage(-1)}}>Prev</button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={e => { this.slideImage(1)}}>Next</button>
+              </li>
+            </ul>
           </div>
           <button
             type="button"
@@ -112,7 +132,7 @@ class Works extends Component {
       <main className="works">
         <header className="page-title">
           <h1>WORKS</h1>
-          <p>by {this.state.author} kato</p>
+          <p>by {this.state.author} kato / <a href={this.state.instagram} target="_blank" rel="noopener noreferrer">instagram</a></p>
         </header>
         <Link to="/" className="move-to-home">
           <i className="fa fa-angle-double-left" aria-hidden="true"></i>
@@ -130,11 +150,12 @@ class Works extends Component {
   }
 
   openLightBox(e, index) {
-    const src = e.currentTarget.getAttribute('src')
-    // const idx = index
+    const idx = index;
+    const src = e.currentTarget.getAttribute('src');
     this.setState({
       lightBox: {
         open: true,
+        index: idx,
         src: src
       }
     });
@@ -144,9 +165,27 @@ class Works extends Component {
     this.setState({
       lightBox: {
         open: false,
+        index: null,
         src: null
       }
     });
+  }
+
+  slideImage(direction) {
+    const idx = this.state.lightBox.index + direction;
+    const src = this.state.galleryItems[idx];
+    if (!src) return;
+    this.setState({
+      lightBox: {
+        open: true,
+        index: idx,
+        src: src
+      }
+    });
+  }
+
+  contextMenu(e) {
+    e.preventDefault();
   }
 }
 

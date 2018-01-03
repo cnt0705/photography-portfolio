@@ -17,8 +17,7 @@ class Home extends Component {
           <div className="introduction">
             <h2 className="my-name-is">Shinya Kato</h2>
             <p className="comment">Born in 1989 and grew up in Ibaraki, Japan.<br/>
-            Canon hogehoge hogehoge<br/>
-            </p>
+            Canon EOS 6D Mark II</p>
             <Link to="/works/shinya" className="move-to-works">Works</Link>
             <ul className="sns-links">
               <li>
