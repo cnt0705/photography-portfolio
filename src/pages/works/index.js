@@ -141,7 +141,7 @@ class Works extends Component {
           <p>by {this.state.author} kato</p>
         </header>
         <ul className="move-to-other-pages">
-          <li className="move-to-other-pages-link">&larr; <Link to="/">Back to top</Link></li>
+          <li className="move-to-other-pages-link">&larr; <Link to="/">Back to main page</Link></li>
           <li className="move-to-other-pages-link"><a href={this.state.instagram} target="_blank" rel="noopener noreferrer">Want to see more ?</a> &rarr;</li>
         </ul>
         <ul className="gallery">{ galleryItems }</ul>
