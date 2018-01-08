@@ -88,12 +88,15 @@ class Works extends Component {
   render() {
     const galleryItems = this.state.galleryItems.map((item, index) => {
       return (
-        <li key={index} className="gallery-item">
+        <li
+          key={index}
+          className="gallery-item">
           <img
             src={item}
             alt=""
-            className="piece"
-            onClick={e => { this.openLightBox(e, index)}}
+            className="gallery-item-piece"
+            onLoad={e => { this.onLoad(e) }}
+            onClick={e => { this.openLightBox(e, index) }}
             onContextMenu={e => { this.contextMenu(e) }}/>
         </li>
       );
@@ -106,16 +109,19 @@ class Works extends Component {
             <img
               src={this.state.lightBox.src}
               alt=""
+              className="light-box-image"
               onContextMenu={e => { this.contextMenu(e) }}/>
             <ul className="light-box-control">
-              <li>
+              <li className="light-box-control-item">
                 <button
                   type="button"
+                  className="light-box-control-button"
                   onClick={e => { this.slideImage(-1)}}>Prev</button>
               </li>
-              <li>
+              <li className="light-box-control-item">
                 <button
                   type="button"
+                  className="light-box-control-button"
                   onClick={e => { this.slideImage(1)}}>Next</button>
               </li>
             </ul>
@@ -131,12 +137,13 @@ class Works extends Component {
     return (
       <main className="works">
         <header className="page-title">
-          <h1>WORKS</h1>
-          <p>by {this.state.author} kato / <a href={this.state.instagram} target="_blank" rel="noopener noreferrer">instagram</a></p>
+          <h1 className="page-title-text">WORKS</h1>
+          <p>by {this.state.author} kato</p>
         </header>
-        <Link to="/" className="move-to-home">
-          <i className="fa fa-angle-double-left" aria-hidden="true"></i>
-        </Link>
+        <ul className="move-to-other-pages">
+          <li className="move-to-other-pages-link">&larr; <Link to="/">Back to top</Link></li>
+          <li className="move-to-other-pages-link"><a href={this.state.instagram} target="_blank" rel="noopener noreferrer">Want to see more ?</a> &rarr;</li>
+        </ul>
         <ul className="gallery">{ galleryItems }</ul>
         <CSSTransitionGroup
           component="div"
@@ -159,6 +166,10 @@ class Works extends Component {
         src: src
       }
     });
+  }
+
+  onLoad(e) {
+    e.currentTarget.className += ' loaded';
   }
 
   closeLightBox() {

@@ -1,16 +1,17 @@
 .site-name {
+  $height: 420px;
+
   margin: 0;
   width: 100%;
-  padding: 100px 0 140px;
-  background: url('./img/title.jpg') no-repeat;
-  background-position-y: -370px;
-  background-size: cover;
+  height: $height;
+  padding-top: 100px;
+  background: url('./img/title.jpg') center calc(#{$height} * -1 / 1.6) no-repeat #333;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   line-height: 1;
-  font-family: Optima;
-  font-size: 18rem;
+  font-family: Optima, Candara;
+  font-size: 20rem;
   text-align: center;
   letter-spacing: 3.5rem;
 }
@@ -18,10 +19,10 @@
 .selfie {
   width: 300px;
   height: 400px;
+}
 
-  > img {
-    width: 100%;
-  }
+.selfie-image {
+  width: 100%;
 }
 
 .about-us {
@@ -59,20 +60,20 @@
 
 .my-name-is {
   margin-bottom: 20px;
-  font-size: 3rem;
+  font-size: 3.2rem;
   letter-spacing: 0.5rem;
 }
 
 .comment {
   margin-bottom: 20px;
-  font-size: 1.4rem;
+  font-size: 1.7rem;
 }
 
 .move-to-works {
   margin-bottom: 5px;
   padding: 5px 0;
   font-weight: bold;
-  font-size: 2.0rem;
+  font-size: 2.4rem;
   letter-spacing: 0.3rem;
 }
 
@@ -80,17 +81,17 @@
   display: flex;
   margin: 0 -5px;
 
-  > li {
-    a {
-      padding: 0 5px;
-    }
-
-    i {
-      font-size: 2rem;
-    }
-  }
-
   .chinatsu & {
     justify-content: flex-end;
+  }
+}
+
+.sns-links-item {
+  a {
+    padding: 0 5px;
+  }
+
+  i {
+    font-size: 2rem;
   }
 }
