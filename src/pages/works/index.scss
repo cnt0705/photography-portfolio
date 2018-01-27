@@ -110,6 +110,8 @@ $cols: 4;
   transition: all 0.2s;
   opacity: 0;
   filter: saturate(30%);
+  user-select: none;
+  -webkit-touch-callout: none;
 
   &.loaded {
     opacity: 1;
