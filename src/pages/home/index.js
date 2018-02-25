@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { SNS } from '../../util/const'
 import './index.css'
 
 class Home extends Component {
@@ -23,7 +24,7 @@ class Home extends Component {
             <Link to="/works/shinya" className="move-to-works">Works</Link>
             <ul className="sns-links">
               <li className="sns-links-item">
-                <a href="https://www.instagram.com/shnykt_46" target="_blank" rel="noopener noreferrer">
+                <a href={SNS.S_INSTAGRAM} target="_blank" rel="noopener noreferrer">
                   <i className="fa fa-instagram" aria-hidden="true" aria-label="Instagram"></i>
                 </a>
               </li>
@@ -44,27 +45,27 @@ class Home extends Component {
             <Link to="/works/chinatsu" className="move-to-works">Works</Link>
             <ul className="sns-links">
               <li className="sns-links-item">
-                <a href="https://www.instagram.com/cnt_kt" target="_blank" rel="noopener noreferrer">
+                <a href={SNS.C_INSTAGRAM} target="_blank" rel="noopener noreferrer">
                   <i className="fa fa-instagram" aria-hidden="true" aria-label="Instagram"></i>
                 </a>
               </li>
               <li className="sns-links-item">
-                <a href="https://twitter.com/cnt_kt" target="_blank" rel="noopener noreferrer">
+                <a href={SNS.C_TWITTER} target="_blank" rel="noopener noreferrer">
                   <i className="fa fa-twitter" aria-hidden="true" aria-label="Twitter"></i>
                 </a>
               </li>
               <li className="sns-links-item">
-                <a href="http://cntkt.hatenablog.com" target="_blank" rel="noopener noreferrer">
+                <a href={SNS.C_BLOG} target="_blank" rel="noopener noreferrer">
                 <i className="fa fa-pencil" aria-hidden="true" aria-label="Twitter"></i>
                 </a>
               </li>
               <li className="sns-links-item">
-                <a href="https://github.com/cnt0705" target="_blank" rel="noopener noreferrer">
+                <a href={SNS.C_GITHUB} target="_blank" rel="noopener noreferrer">
                   <i className="fa fa-github" aria-hidden="true" aria-label="Twitter"></i>
                 </a>
               </li>
               <li className="sns-links-item">
-                <a href="https://codepen.io/cnt_kt" target="_blank" rel="noopener noreferrer">
+                <a href={SNS.C_CODEPEN} target="_blank" rel="noopener noreferrer">
                   <i className="fa fa-codepen" aria-hidden="true" aria-label="Twitter"></i>
                 </a>
               </li>

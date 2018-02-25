@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { CSSTransitionGroup } from 'react-transition-group'
+import { SNS } from '../../util/const'
 import './index.css'
+
+const PHOTOS_LENGTH = 12
+const PHOTOS_LIST = Array.apply(null, { length: PHOTOS_LENGTH }).map(Number.call, Number).map(v => ++v)
 
 class Works extends Component {
   constructor(props) {
@@ -19,8 +23,8 @@ class Works extends Component {
   componentWillMount() {
     const author = this.props.match.params.author
     const insta = new Map()
-    insta.set('shinya', 'https://www.instagram.com/shnykt_46')
-    insta.set('chinatsu', 'https://www.instagram.com/cnt_kt')
+    insta.set('shinya', SNS.S_INSTAGRAM)
+    insta.set('chinatsu', SNS.C_INSTAGRAM)
     if (!insta.get(author)) return
     this.setState({ author: author })
     this.setState({ instagram: insta.get(author) })
@@ -28,7 +32,7 @@ class Works extends Component {
 
   render() {
     const galleryItems = author => {
-      return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((itemNo, index) => {
+      return PHOTOS_LIST.map((itemNo, index) => {
         return (
           <li
             key={index}
