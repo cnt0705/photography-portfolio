@@ -1,19 +1,21 @@
 import React, { Component } from 'react'
+import { PHOTOS } from '../../../util/const'
 
-const PHOTOS_LENGTH = 12
-const PHOTOS_LIST = Array.apply(null, { length: PHOTOS_LENGTH }).map(Number.call, Number).map(v => ++v)
+const PHOTOS_LIST = Array.apply(null, { length: PHOTOS.LENGTH }).map(Number.call, Number).map(v => ++v)
 
 class galleryItems extends Component {
   constructor(props) {
     super(props)
-    this.state = { author: props.author };
+    this.state = {
+      author: props.author
+    };
   }
 
   render() {
-    return PHOTOS_LIST.map((itemNo, index) => {
+    return PHOTOS_LIST.map(itemNo => {
       return (
         <li
-          key={index}
+          key={itemNo}
           className="gallery-item">
           <img
             src={require(`../img/${this.state.author}/${String(itemNo).padStart(2, '0')}.jpg`)}
@@ -21,7 +23,7 @@ class galleryItems extends Component {
             className="gallery-item-piece"
             onLoad={e => { this.onLoad(e) }}
             onContextMenu={e => { this.contextMenu(e) }}
-            onClick={e => { this.openLightBox(e, index) }} />
+            onClick={e => { this.openLightBox(itemNo) }} />
         </li>
       )
     })
@@ -35,9 +37,8 @@ class galleryItems extends Component {
     e.preventDefault()
   }
 
-  openLightBox(e, index) {
-    const src = e.currentTarget.getAttribute('src')
-    this.props.openLightBox(index, src)
+  openLightBox(index) {
+    this.props.openLightBox(index)
   }
 }
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { CSSTransitionGroup } from 'react-transition-group'
+import { PHOTOS } from '../../util/const'
 import { SNS } from '../../util/const'
 import GalleryItems from './components/galleryItems'
 import './index.css'
@@ -10,10 +11,9 @@ class Works extends Component {
     super(props)
     this.state = {
       author: null,
-      galleryItems: [],
       lightBox: {
         open: false,
-        src: null
+        index: null
       }
     }
   }
@@ -34,7 +34,7 @@ class Works extends Component {
         ? <div className="light-box">
           <div className="light-box-content">
             <img
-              src={this.state.lightBox.src}
+              src={require(`./img/${this.state.author}/${String(this.state.lightBox.index).padStart(2, '0')}.jpg`)}
               alt=""
               className="light-box-image"
               onContextMenu={e => { this.contextMenu(e) }}/>
@@ -85,12 +85,11 @@ class Works extends Component {
     )
   }
 
-  openLightBox(index, src) {
+  openLightBox(index) {
     this.setState({
       lightBox: {
         open: true,
-        index: index,
-        src: src
+        index: index
       }
     })
   }
@@ -99,21 +98,18 @@ class Works extends Component {
     this.setState({
       lightBox: {
         open: false,
-        index: null,
-        src: null
+        index: null
       }
     })
   }
 
   slideImage(direction) {
     const index = this.state.lightBox.index + direction
-    const src = this.state.galleryItems[index]
-    if (!src) return
+    if (index <= 0 || PHOTOS.LENGTH < index) return
     this.setState({
       lightBox: {
         open: true,
-        index: index,
-        src: src
+        index: this.state.lightBox.index + direction
       }
     })
   }
