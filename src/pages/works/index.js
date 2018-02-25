@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { CSSTransitionGroup } from 'react-transition-group'
-import './index.css';
-
-
+import './index.css'
 
 class Works extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       author: null,
       galleryItems: [],
@@ -15,17 +13,17 @@ class Works extends Component {
         open: false,
         src: null
       }
-    };
+    }
   }
 
   componentWillMount() {
-    const author = this.props.match.params.author;
-    const insta = new Map();
-    insta.set('shinya', 'https://www.instagram.com/shnykt_46');
-    insta.set('chinatsu', 'https://www.instagram.com/cnt_kt');
-    if (!insta.get(author)) return;
-    this.setState({ author: author });
-    this.setState({ instagram: insta.get(author) });
+    const author = this.props.match.params.author
+    const insta = new Map()
+    insta.set('shinya', 'https://www.instagram.com/shnykt_46')
+    insta.set('chinatsu', 'https://www.instagram.com/cnt_kt')
+    if (!insta.get(author)) return
+    this.setState({ author: author })
+    this.setState({ instagram: insta.get(author) })
   }
 
   render() {
@@ -98,23 +96,23 @@ class Works extends Component {
           {lightBox()}
         </CSSTransitionGroup>
       </main>
-    );
+    )
   }
 
   openLightBox(e, index) {
-    const idx = index;
-    const src = e.currentTarget.getAttribute('src');
+    const idx = index
+    const src = e.currentTarget.getAttribute('src')
     this.setState({
       lightBox: {
         open: true,
         index: idx,
         src: src
       }
-    });
+    })
   }
 
   onLoad(e) {
-    e.currentTarget.className += ' loaded';
+    e.currentTarget.className += ' loaded'
   }
 
   closeLightBox() {
@@ -124,25 +122,25 @@ class Works extends Component {
         index: null,
         src: null
       }
-    });
+    })
   }
 
   slideImage(direction) {
-    const idx = this.state.lightBox.index + direction;
-    const src = this.state.galleryItems[idx];
-    if (!src) return;
+    const idx = this.state.lightBox.index + direction
+    const src = this.state.galleryItems[idx]
+    if (!src) return
     this.setState({
       lightBox: {
         open: true,
         index: idx,
         src: src
       }
-    });
+    })
   }
 
   contextMenu(e) {
-    e.preventDefault();
+    e.preventDefault()
   }
 }
 
-export default Works;
+export default Works

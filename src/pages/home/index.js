@@ -1,10 +1,6 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-
-import imgS from './img/s.jpg';
-import imgC from './img/c.jpg';
-
-import './index.css';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import './index.css'
 
 class Home extends Component {
   render() {
@@ -16,7 +12,7 @@ class Home extends Component {
         <section className="about-us shinya">
           <div className="selfie">
             <img
-              src={imgS}
+              src={require('./img/s.jpg')}
               alt="Shinya"
               className="selfie-image"/>
           </div>
@@ -37,7 +33,7 @@ class Home extends Component {
         <section className="about-us chinatsu">
           <div className="selfie">
             <img
-              src={imgC}
+              src={require('./img/c.jpg')}
               alt="Chinatsu"
               className="selfie-image"/>
           </div>
@@ -76,8 +72,8 @@ class Home extends Component {
           </div>
         </section>
       </main>
-    );
+    )
   }
 }
 
-export default Home;
+export default Home

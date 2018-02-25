@@ -1,15 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-import 'ress';
-import 'font-awesome/css/font-awesome.min.css';
-import './global.css';
-import './index.css';
+import 'ress'
+import 'font-awesome/css/font-awesome.min.css'
+import './global.css'
+import './index.css'
 
-import ScrollToTop from '../src/containers/ScrollToTop';
-import Home from '../src/pages/home';
-import Works from '../src/pages/works';
+import ScrollToTop from '../src/containers/ScrollToTop'
+import Home from '../src/pages/home'
+import Works from '../src/pages/works'
 
 ReactDOM.render(
   <Router>
@@ -24,4 +24,4 @@ ReactDOM.render(
     </ScrollToTop>
   </Router>,
   document.getElementById('root')
-);
+)
