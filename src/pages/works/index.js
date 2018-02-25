@@ -2,10 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { CSSTransitionGroup } from 'react-transition-group'
 import { SNS } from '../../util/const'
+import GalleryItems from './components/galleryItems'
 import './index.css'
-
-const PHOTOS_LENGTH = 12
-const PHOTOS_LIST = Array.apply(null, { length: PHOTOS_LENGTH }).map(Number.call, Number).map(v => ++v)
 
 class Works extends Component {
   constructor(props) {
@@ -31,24 +29,6 @@ class Works extends Component {
   }
 
   render() {
-    const galleryItems = author => {
-      return PHOTOS_LIST.map((itemNo, index) => {
-        return (
-          <li
-            key={index}
-            className="gallery-item">
-            <img
-              src={require(`./img/${author}/${String(itemNo).padStart(2, '0')}.jpg`)}
-              alt=""
-              className="gallery-item-piece"
-              onLoad={e => { this.onLoad(e) }}
-              onClick={e => { this.openLightBox(e, index) }}
-              onContextMenu={e => { this.contextMenu(e) }}/>
-          </li>
-        )
-      })
-    }
-
     const lightBox = () => {
       return this.state.lightBox.open
         ? <div className="light-box">
@@ -91,7 +71,9 @@ class Works extends Component {
           <li className="move-to-other-pages-link">&larr; <Link to="/">Back to main page</Link></li>
           <li className="move-to-other-pages-link"><a href={this.state.instagram} target="_blank" rel="noopener noreferrer">Want to see more ?</a> &rarr;</li>
         </ul>
-        <ul className="gallery">{ galleryItems(this.state.author) }</ul>
+        <ul className="gallery">
+          <GalleryItems author={this.state.author} openLightBox={this.openLightBox.bind(this)} />
+        </ul>
         <CSSTransitionGroup
           component="div"
           transitionName="light-box"
@@ -103,20 +85,14 @@ class Works extends Component {
     )
   }
 
-  openLightBox(e, index) {
-    const idx = index
-    const src = e.currentTarget.getAttribute('src')
+  openLightBox(index, src) {
     this.setState({
       lightBox: {
         open: true,
-        index: idx,
+        index: index,
         src: src
       }
     })
-  }
-
-  onLoad(e) {
-    e.currentTarget.className += ' loaded'
   }
 
   closeLightBox() {
@@ -130,20 +106,16 @@ class Works extends Component {
   }
 
   slideImage(direction) {
-    const idx = this.state.lightBox.index + direction
-    const src = this.state.galleryItems[idx]
+    const index = this.state.lightBox.index + direction
+    const src = this.state.galleryItems[index]
     if (!src) return
     this.setState({
       lightBox: {
         open: true,
-        index: idx,
+        index: index,
         src: src
       }
     })
-  }
-
-  contextMenu(e) {
-    e.preventDefault()
   }
 }
 
