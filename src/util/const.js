@@ -8,5 +8,6 @@ export const SNS = {
   C_TWITTER: 'https://twitter.com/cnt_kt',
   C_BLOG: 'http://cntkt.hatenablog.com',
   C_GITHUB: 'https://github.com/cnt0705',
+  C_GIST: 'https://gist.github.com/cnt0705',
   C_CODEPEN: 'https://codepen.io/cnt_kt'
 }

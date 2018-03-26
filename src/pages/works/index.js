@@ -85,6 +85,10 @@ class Works extends Component {
     )
   }
 
+  contextMenu(e) {
+    e.preventDefault()
+  }
+
   openLightBox(index) {
     this.setState({
       lightBox: {
