@@ -50,11 +50,6 @@ class Home extends Component {
                 </a>
               </li>
               <li className="sns-links-item">
-                <a href={SNS.C_TWITTER} target="_blank" rel="noopener noreferrer">
-                  <i className="fa fa-twitter" aria-hidden="true" aria-label="Twitter"></i>
-                </a>
-              </li>
-              <li className="sns-links-item">
                 <a href={SNS.C_CODEPEN} target="_blank" rel="noopener noreferrer">
                   <i className="fa fa-codepen" aria-hidden="true" aria-label="Twitter"></i>
                 </a>
@@ -62,16 +57,6 @@ class Home extends Component {
               <li className="sns-links-item">
                 <a href={SNS.C_GITHUB} target="_blank" rel="noopener noreferrer">
                   <i className="fa fa-github" aria-hidden="true" aria-label="Twitter"></i>
-                </a>
-              </li>
-              <li className="sns-links-item">
-                <a href={SNS.C_GIST} target="_blank" rel="noopener noreferrer">
-                  <i className="fa fa-github-square" aria-hidden="true" aria-label="Twitter"></i>
-                </a>
-              </li>
-              <li className="sns-links-item">
-                <a href={SNS.C_BLOG} target="_blank" rel="noopener noreferrer">
-                <i className="fa fa-pencil" aria-hidden="true" aria-label="Twitter"></i>
                 </a>
               </li>
             </ul>
