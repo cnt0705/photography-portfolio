@@ -8,13 +8,16 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@types/node": "^8.0.7",
-    "@types/react": "15.0.21",
-    "@types/react-dom": "0.14.23",
-    "gatsby": "^1.9.119",
-    "gatsby-link": "^1.6.28",
-    "gatsby-plugin-react-helmet": "^1.0.8",
-    "gatsby-plugin-typescript": "^1.4.10"
+    "@types/node": "^12.12.7",
+    "@types/react-helmet": "^5.0.14",
+    "gatsby-plugin-react-helmet": "^3.1.14",
+    "gatsby-plugin-typescript": "^2.1.16",
+    "gatsby": "^2.17.11",
+    "react-dom": "^16.11.0",
+    "react-helmet": "^5.2.1",
+    "react": "^16.11.0",
+    "ts-node": "^8.5.0",
+    "typescript": "^3.7.2"
   },
   "devDependencies": {
     "prettier": "^1.8.2"
