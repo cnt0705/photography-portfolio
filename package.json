@@ -6,6 +6,7 @@
     "develop": "gatsby develop"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "gatsby": "^2.17.11",
     "gatsby-plugin-graphql-codegen": "^2.7.1",
     "gatsby-plugin-react-helmet": "^3.1.14",
