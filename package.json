@@ -10,6 +10,7 @@
     "gatsby-plugin-graphql-codegen": "^2.7.1",
     "gatsby-plugin-react-helmet": "^3.1.14",
     "gatsby-plugin-typescript": "^2.1.16",
+    "gatsby-source-contentful": "^2.3.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-helmet": "^5.2.1"
