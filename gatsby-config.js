@@ -5,6 +5,7 @@ module.exports = {
     title: `Gatsby Typescript Starter`,
   },
   plugins: [
+    `gatsby-plugin-graphql-codegen`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typescript`,
     {

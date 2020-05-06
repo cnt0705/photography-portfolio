@@ -5,8 +5,12 @@ node_modules
 # Environment variables file
 .env*
 
+# Code generator
+graphql-types.ts
+
 # Build directory
 public/
+dist/
 
 # Logs
 logs
