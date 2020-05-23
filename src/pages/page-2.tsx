@@ -1,6 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
+import Gallery from 'react-photo-gallery'
+
 type Props = {
   data: GatsbyTypes.PhotosQuery
 }
@@ -10,9 +12,22 @@ const SecondPage: React.FC<Props> = ({ data }) => {
     <div>
       <h1>Hi from the second page</h1>
       <p>Welcome to page 2</p>
-      {data.allContentfulPhoto.nodes.map(photo => {
-        return <img src={photo.image?.file?.url} alt="" />
-      })}
+      <Gallery
+        photos={[
+          {
+            src:
+              '//images.ctfassets.net/kdaqouviun2r/4faQpP0nSC0hx6qm5zsc1V/83ea7bc7cc4329dcc109da842357f3de/Screen_Shot_2020-05-23_at_15.20.30.png',
+            width: 1162,
+            height: 874,
+          },
+          {
+            src:
+              '//images.ctfassets.net/kdaqouviun2r/7eKhZ5ZFDkqXUbMYzOPkTX/ce9be6cf8117a2c4d335bee4f9ddb437/Background.png',
+            width: 1440,
+            height: 1086,
+          },
+        ]}
+      />
     </div>
   )
 }
@@ -24,6 +39,12 @@ export const pageQuery = graphql`
         image {
           file {
             url
+            details {
+              image {
+                height
+                width
+              }
+            }
           }
         }
       }
