@@ -19,7 +19,7 @@ const SecondPage: React.FC<Props> = ({ data }) => {
 
 export const pageQuery = graphql`
   query Photos {
-    allContentfulPhoto {
+    allContentfulPhoto(sort: { fields: updatedAt, order: DESC }) {
       nodes {
         image {
           file {
