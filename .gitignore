@@ -6,7 +6,7 @@ node_modules
 .env*
 
 # Code generator
-graphql-types.ts
+*/__generated__
 
 # Build directory
 public/

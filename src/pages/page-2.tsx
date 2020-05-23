@@ -1,10 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { PhotosQuery } from '../../graphql-types'
-
 type Props = {
-  data: PhotosQuery
+  data: GatsbyTypes.PhotosQuery
 }
 
 const SecondPage: React.FC<Props> = ({ data }) => {
@@ -12,9 +10,9 @@ const SecondPage: React.FC<Props> = ({ data }) => {
     <div>
       <h1>Hi from the second page</h1>
       <p>Welcome to page 2</p>
-      {data.allContentfulPhoto.nodes.map(({ image }) => (
-        <p>{image.file.url}</p>
-      ))}
+      {data.allContentfulPhoto.nodes.map(photo => {
+        return <img src={photo.image?.file?.url} alt="" />
+      })}
     </div>
   )
 }
