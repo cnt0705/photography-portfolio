@@ -2,7 +2,7 @@ require('dotenv').config()
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Typescript Starter`,
+    title: `Kato Photography`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
