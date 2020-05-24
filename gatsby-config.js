@@ -3,6 +3,8 @@ require('dotenv').config()
 module.exports = {
   siteMetadata: {
     title: `Kato Photography`,
+    // TODO: Manage them on CMS
+    photographers: ['shinya', 'chinatsu'],
   },
   plugins: [
     `gatsby-alias-imports`,

@@ -1,13 +1,29 @@
 import path from 'path'
 import { GatsbyNode } from 'gatsby'
 
-export const createPages: GatsbyNode['createPages'] = ({
+type SiteMetadataQuery = {
+  site: {
+    siteMetadata: {
+      photographers: string[]
+    }
+  }
+}
+
+export const createPages: GatsbyNode['createPages'] = async ({
   graphql,
   actions: { createPage },
 }) => {
-  const photographers = ['shinya', 'chinatsu']
+  const result = await graphql<SiteMetadataQuery>(query)
+  if (result.errors) {
+    throw result.errors
+  }
 
-  for (let photographer of photographers) {
+  const { siteMetadata } = result.data.site
+  if (!siteMetadata || !siteMetadata.photographers) {
+    throw new Error('Photographers are undefined')
+  }
+
+  for (let photographer of siteMetadata.photographers) {
     createPage({
       path: `/${photographer}/gallery`,
       component: path.resolve('src/templates/gallery.tsx'),
@@ -15,3 +31,13 @@ export const createPages: GatsbyNode['createPages'] = ({
     })
   }
 }
+
+const query = `
+  query SiteMetadataQuery {
+    site {
+      siteMetadata {
+        photographers
+      }
+    }
+  }
+`
