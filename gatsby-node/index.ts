@@ -1,6 +1,7 @@
 import path from 'path'
 import { GatsbyNode } from 'gatsby'
-import { Site } from '../src/types/graphql-types'
+
+import { Site } from '../types/graphql-types'
 
 type SiteMetadataQuery = {
   site: Site

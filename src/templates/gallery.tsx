@@ -2,15 +2,17 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Gallery from 'react-photo-gallery'
 
-import { PhotosQuery } from 'types/graphql-types'
+// TODO: Path
+import { PhotosQuery } from '../../types/graphql-types'
 
 type Props = {
   data: PhotosQuery
 }
 
-const Page: React.FC<Props> = ({ data }) => {
+const Template: React.FC<Props> = ({ data }) => {
   return (
     <div>
+      <h1>Hoge Hoge</h1>
       <Gallery
         photos={[
           {
@@ -51,4 +53,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default Page
+export default Template
