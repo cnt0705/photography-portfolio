@@ -1,10 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-
 import Gallery from 'react-photo-gallery'
 
+import { PhotosQuery } from 'types/graphql-types'
+
 type Props = {
-  data: GatsbyTypes.PhotosQuery
+  data: PhotosQuery
 }
 
 const Page: React.FC<Props> = ({ data }) => {

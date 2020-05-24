@@ -1,12 +1,9 @@
 import path from 'path'
 import { GatsbyNode } from 'gatsby'
+import { Site } from '../src/types/graphql-types'
 
 type SiteMetadataQuery = {
-  site: {
-    siteMetadata: {
-      photographers: string[]
-    }
-  }
+  site: Site
 }
 
 export const createPages: GatsbyNode['createPages'] = async ({
@@ -14,7 +11,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
   actions: { createPage },
 }) => {
   const result = await graphql<SiteMetadataQuery>(query)
-  if (result.errors) {
+  if (result.errors || !result.data) {
     throw result.errors
   }
 

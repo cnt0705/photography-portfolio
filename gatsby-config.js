@@ -9,8 +9,13 @@ module.exports = {
   plugins: [
     `gatsby-alias-imports`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-typegen`,
     `gatsby-plugin-typescript`,
+    {
+      resolve: 'gatsby-plugin-graphql-codegen',
+      options: {
+        fileName: `src/types/graphql-types.d.ts`,
+      },
+    },
     {
       resolve: `gatsby-source-contentful`,
       options: {
