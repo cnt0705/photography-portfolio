@@ -7,11 +7,9 @@ type Props = {
   data: GatsbyTypes.PhotosQuery
 }
 
-const SecondPage: React.FC<Props> = ({ data }) => {
+const Page: React.FC<Props> = ({ data }) => {
   return (
     <div>
-      <h1>Hi from the second page</h1>
-      <p>Welcome to page 2</p>
       <Gallery
         photos={[
           {
@@ -52,4 +50,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default SecondPage
+export default Page
