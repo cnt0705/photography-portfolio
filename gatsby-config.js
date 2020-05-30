@@ -8,6 +8,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-alias-imports`,
+    `gatsby-plugin-emotion`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typescript`,
     {

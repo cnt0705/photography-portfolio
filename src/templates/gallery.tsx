@@ -1,6 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
+
+import { css } from '@emotion/core'
 import Gallery from 'react-photo-gallery'
 
 import { Layout } from 'layouts'
@@ -15,11 +17,18 @@ type Props = {
 const Template: React.FC<Props> = ({ data }) => {
   return (
     <Layout>
-      <div className="about">
-        <Link to="/">SC</Link>
-        <span>Shinya Kato</span>
-      </div>
-      <div className="gallery">
+      <nav css={nav}>
+        <Link to="/" css={siteTitle}>
+          SC
+        </Link>
+        <div css={photographer}>
+          <span css={photographerName}>Shinya Kato</span>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener">
+            Instagram
+          </a>
+        </div>
+      </nav>
+      <div css={gallery}>
         <Gallery
           photos={[
             {
@@ -42,6 +51,28 @@ const Template: React.FC<Props> = ({ data }) => {
     </Layout>
   )
 }
+
+const nav = css`
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 30px;
+  color: #888;
+`
+
+const siteTitle = css``
+
+const photographer = css`
+  font-size: 1.8rem;
+`
+
+const photographerName = css`
+  margin-right: 10px;
+`
+
+const gallery = css`
+  padding: 30px;
+  background: #222;
+`
 
 export const pageQuery = graphql`
   query Photos {
