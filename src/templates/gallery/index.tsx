@@ -1,5 +1,4 @@
 import React from 'react'
-import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
 
 import { css } from '@emotion/core'
@@ -7,8 +6,8 @@ import Gallery from 'react-photo-gallery'
 
 import { Layout } from 'layouts'
 
-// TODO: Path
-import { PhotosQuery } from '../../types/graphql-types'
+import { PhotosQuery } from '../../../types/graphql-types' // TODO: Path
+import { query } from './query'
 
 type Props = {
   data: PhotosQuery
@@ -74,24 +73,5 @@ const gallery = css`
   background: #222;
 `
 
-export const pageQuery = graphql`
-  query Photos {
-    allContentfulPhoto(sort: { fields: updatedAt, order: DESC }) {
-      nodes {
-        image {
-          file {
-            url
-            details {
-              image {
-                height
-                width
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
-
+export const pageQuery = query
 export default Template

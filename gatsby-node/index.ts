@@ -24,7 +24,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
   for (let photographer of siteMetadata.photographers) {
     createPage({
       path: `/${photographer}/gallery`,
-      component: path.resolve('src/templates/gallery.tsx'),
+      component: path.resolve('src/templates/gallery/index.tsx'),
       context: { photographer },
     })
   }
