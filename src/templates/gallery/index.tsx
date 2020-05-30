@@ -4,10 +4,11 @@ import Link from 'gatsby-link'
 import { css } from '@emotion/core'
 import Gallery from 'react-photo-gallery'
 
-import { Layout } from 'layouts'
-
 import { PhotosQuery } from '../../../types/graphql-types' // TODO: Path
 import { query } from './query'
+
+import { Layout } from 'layouts'
+import SiteName from './assets/sc.svg'
 
 type Props = {
   data: PhotosQuery
@@ -18,14 +19,16 @@ const Template: React.FC<Props> = ({ data }) => {
     <Layout>
       <nav css={nav}>
         <Link to="/" css={siteTitle}>
-          SC
+          <SiteName />
         </Link>
-        <div css={photographer}>
-          <span css={photographerName}>Shinya Kato</span>
-          <a href="https://www.instagram.com" target="_blank" rel="noopener">
-            Instagram
-          </a>
-        </div>
+        <a
+          href="https://www.instagram.com"
+          target="_blank"
+          rel="noopener"
+          css={photographer}
+        >
+          #ShinyaKato
+        </a>
       </nav>
       <div css={gallery}>
         <Gallery
@@ -53,19 +56,20 @@ const Template: React.FC<Props> = ({ data }) => {
 
 const nav = css`
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 50px 30px;
   color: #888;
 `
 
-const siteTitle = css``
-
-const photographer = css`
-  font-size: 1.8rem;
+const siteTitle = css`
+  line-height: 1;
 `
 
-const photographerName = css`
-  margin-right: 10px;
+const photographer = css`
+  line-height: 1;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
 `
 
 const gallery = css`
