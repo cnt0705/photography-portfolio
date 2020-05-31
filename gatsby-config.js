@@ -4,7 +4,13 @@ module.exports = {
   siteMetadata: {
     title: 'Kato Photography',
     // TODO: Manage them on CMS
-    photographers: ['shinya', 'chinatsu'],
+    photographers: [
+      {
+        name: 'Shinya',
+        slug: 'shinya',
+      },
+      { name: 'Chinatsu', slug: 'chinatsu' },
+    ],
   },
   plugins: [
     'gatsby-alias-imports',

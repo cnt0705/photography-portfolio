@@ -21,11 +21,13 @@ export const createPages: GatsbyNode['createPages'] = async ({
     throw new Error('Photographers are undefined')
   }
 
-  for (let photographer of siteMetadata.photographers) {
+  for (let p of siteMetadata.photographers) {
+    if (!p) continue
+
     createPage({
-      path: `/${photographer}/gallery`,
+      path: `/${p.slug}/gallery`,
       component: path.resolve('src/templates/gallery/index.tsx'),
-      context: { photographer },
+      context: { photographer: p.name },
     })
   }
 }
@@ -34,7 +36,10 @@ const query = `
   query SiteMetadataQuery {
     site {
       siteMetadata {
-        photographers
+        photographers {
+          name
+          slug
+        }
       }
     }
   }
