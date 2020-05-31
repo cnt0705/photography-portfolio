@@ -1,4 +1,4 @@
-import { GalleryQuery } from '../../../../types/graphql-types' // TODO: Path
+import { GalleryQuery } from '../../types/graphql-types' // TODO: Path
 
 export const useGallery = (photos: GalleryQuery) => {
   return photos.allContentfulGallery.edges.map(p => {

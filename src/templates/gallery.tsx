@@ -1,16 +1,15 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
-
-import { css } from '@emotion/core'
 import Gallery from 'react-photo-gallery'
-
-import { GalleryQuery } from '../../../types/graphql-types' // TODO: Path
-import { useGallery } from './hooks/useGallery'
+import { css } from '@emotion/core'
 
 import { Layout } from 'layouts'
 import { mq } from 'styles/media-queries'
-import SiteName from './assets/sc.svg'
+import SiteName from 'assets/sc.svg'
+
+import { GalleryQuery } from '../../types/graphql-types' // TODO: Path
+import { useGallery } from 'hooks/useGallery'
 
 type PageContext = { photographer: string; instagram: string }
 
