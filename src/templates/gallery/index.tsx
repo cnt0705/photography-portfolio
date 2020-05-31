@@ -11,7 +11,7 @@ import { useGallery } from './hooks/useGallery'
 import { Layout } from 'layouts'
 import SiteName from './assets/sc.svg'
 
-type PageContext = { photographer: string }
+type PageContext = { photographer: string; instagram: string }
 
 type Props = {
   data: GalleryQuery
@@ -28,7 +28,7 @@ const Template: React.FC<Props> = ({ data, pageContext }) => {
           <SiteName />
         </Link>
         <a
-          href="https://www.instagram.com"
+          href={`https://www.instagram.com/${pageContext.instagram}`}
           target="_blank"
           rel="noopener"
           css={photographer}

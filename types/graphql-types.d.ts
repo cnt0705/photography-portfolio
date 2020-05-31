@@ -810,6 +810,7 @@ export type ContentfulGalleryFieldsEnum =
   | 'photographer___internal___type'
   | 'photographer___name'
   | 'photographer___slug'
+  | 'photographer___instagram'
   | 'photographer___gallery'
   | 'photographer___gallery___id'
   | 'photographer___gallery___parent___id'
@@ -836,6 +837,7 @@ export type ContentfulGalleryFieldsEnum =
   | 'photographer___gallery___photographer___children'
   | 'photographer___gallery___photographer___name'
   | 'photographer___gallery___photographer___slug'
+  | 'photographer___gallery___photographer___instagram'
   | 'photographer___gallery___photographer___gallery'
   | 'photographer___gallery___photographer___spaceId'
   | 'photographer___gallery___photographer___contentful_id'
@@ -1215,6 +1217,7 @@ export type ContentfulPhotographer = Node & {
   internal: Internal;
   name?: Maybe<Scalars['String']>;
   slug?: Maybe<Scalars['String']>;
+  instagram?: Maybe<Scalars['String']>;
   gallery?: Maybe<Array<Maybe<ContentfulGallery>>>;
   spaceId?: Maybe<Scalars['String']>;
   contentful_id?: Maybe<Scalars['String']>;
@@ -1356,6 +1359,7 @@ export type ContentfulPhotographerFieldsEnum =
   | 'internal___type'
   | 'name'
   | 'slug'
+  | 'instagram'
   | 'gallery'
   | 'gallery___id'
   | 'gallery___parent___id'
@@ -1473,6 +1477,7 @@ export type ContentfulPhotographerFieldsEnum =
   | 'gallery___photographer___internal___type'
   | 'gallery___photographer___name'
   | 'gallery___photographer___slug'
+  | 'gallery___photographer___instagram'
   | 'gallery___photographer___gallery'
   | 'gallery___photographer___gallery___id'
   | 'gallery___photographer___gallery___children'
@@ -1512,6 +1517,7 @@ export type ContentfulPhotographerFilterInput = {
   internal?: Maybe<InternalFilterInput>;
   name?: Maybe<StringQueryOperatorInput>;
   slug?: Maybe<StringQueryOperatorInput>;
+  instagram?: Maybe<StringQueryOperatorInput>;
   gallery?: Maybe<ContentfulGalleryFilterListInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
   contentful_id?: Maybe<StringQueryOperatorInput>;
@@ -2593,6 +2599,7 @@ export type QueryContentfulPhotographerArgs = {
   internal?: Maybe<InternalFilterInput>;
   name?: Maybe<StringQueryOperatorInput>;
   slug?: Maybe<StringQueryOperatorInput>;
+  instagram?: Maybe<StringQueryOperatorInput>;
   gallery?: Maybe<ContentfulGalleryFilterListInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
   contentful_id?: Maybe<StringQueryOperatorInput>;
@@ -2907,9 +2914,6 @@ export type SiteEdge = {
 export type SiteFieldsEnum = 
   | 'buildTime'
   | 'siteMetadata___title'
-  | 'siteMetadata___photographers'
-  | 'siteMetadata___photographers___name'
-  | 'siteMetadata___photographers___slug'
   | 'port'
   | 'host'
   | 'polyfill'
@@ -3063,10 +3067,12 @@ export type SitePageConnectionGroupArgs = {
 
 export type SitePageContext = {
   photographer?: Maybe<Scalars['String']>;
+  instagram?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextFilterInput = {
   photographer?: Maybe<StringQueryOperatorInput>;
+  instagram?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageEdge = {
@@ -3169,6 +3175,7 @@ export type SitePageFieldsEnum =
   | 'internal___type'
   | 'isCreatedByStatefulCreatePages'
   | 'context___photographer'
+  | 'context___instagram'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'
   | 'pluginCreator___parent___parent___id'
@@ -3540,26 +3547,10 @@ export type SitePluginSortInput = {
 
 export type SiteSiteMetadata = {
   title?: Maybe<Scalars['String']>;
-  photographers?: Maybe<Array<Maybe<SiteSiteMetadataPhotographers>>>;
 };
 
 export type SiteSiteMetadataFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
-  photographers?: Maybe<SiteSiteMetadataPhotographersFilterListInput>;
-};
-
-export type SiteSiteMetadataPhotographers = {
-  name?: Maybe<Scalars['String']>;
-  slug?: Maybe<Scalars['String']>;
-};
-
-export type SiteSiteMetadataPhotographersFilterInput = {
-  name?: Maybe<StringQueryOperatorInput>;
-  slug?: Maybe<StringQueryOperatorInput>;
-};
-
-export type SiteSiteMetadataPhotographersFilterListInput = {
-  elemMatch?: Maybe<SiteSiteMetadataPhotographersFilterInput>;
 };
 
 export type SiteSortInput = {

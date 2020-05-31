@@ -1,45 +1,45 @@
 import path from 'path'
 import { GatsbyNode } from 'gatsby'
 
-import { Site } from '../types/graphql-types'
+import { ContentfulPhotographerConnection } from '../types/graphql-types'
 
-type SiteMetadataQuery = {
-  site: Site
+type GalleryTemplate = {
+  allContentfulPhotographer: ContentfulPhotographerConnection
 }
 
 export const createPages: GatsbyNode['createPages'] = async ({
   graphql,
   actions: { createPage },
 }) => {
-  const result = await graphql<SiteMetadataQuery>(query)
+  const result = await graphql<GalleryTemplate>(query)
+
   if (result.errors || !result.data) {
     throw result.errors
   }
 
-  const { siteMetadata } = result.data.site
-  if (!siteMetadata || !siteMetadata.photographers) {
+  const photographers = result.data.allContentfulPhotographer.nodes
+  if (photographers.length === 0) {
     throw new Error('Photographers are undefined')
   }
 
-  for (let p of siteMetadata.photographers) {
+  for (let p of photographers) {
     if (!p) continue
 
     createPage({
       path: `/${p.slug}/gallery`,
       component: path.resolve('src/templates/gallery/index.tsx'),
-      context: { photographer: p.name },
+      context: { photographer: p.name, instagram: p.instagram },
     })
   }
 }
 
 const query = `
-  query SiteMetadataQuery {
-    site {
-      siteMetadata {
-        photographers {
-          name
-          slug
-        }
+  query GalleryTemplate {
+    allContentfulPhotographer {
+      nodes {
+        name
+        slug
+        instagram
       }
     }
   }
