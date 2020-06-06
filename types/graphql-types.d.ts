@@ -3906,7 +3906,7 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>;
 };
 
-export type PhotoFragment = { photo?: Maybe<(
+export type TopPhotoFragment = { photo?: Maybe<(
     Pick<ContentfulAsset, 'title'>
     & { fluid?: Maybe<Pick<ContentfulFluid, 'src' | 'srcSet' | 'aspectRatio'>> }
   )> };
@@ -3914,20 +3914,19 @@ export type PhotoFragment = { photo?: Maybe<(
 export type TopQueryVariables = {};
 
 
-export type TopQuery = { allContentfulTop: { nodes: Array<PhotoFragment> } };
+export type TopQuery = { allContentfulTop: { nodes: Array<TopPhotoFragment> } };
+
+export type GalleryPhotoFragment = (
+  Pick<ContentfulGallery, 'id' | 'title'>
+  & { photo?: Maybe<{ fixed?: Maybe<Pick<ContentfulFixed, 'height' | 'width' | 'srcSet' | 'src'>> }> }
+);
 
 export type GalleryQueryVariables = {
   photographer?: Maybe<Scalars['String']>;
 };
 
 
-export type GalleryQuery = { allContentfulGallery: { edges: Array<{ node: (
-        Pick<ContentfulGallery, 'id' | 'title'>
-        & { photo?: Maybe<{ file?: Maybe<(
-            Pick<ContentfulAssetFile, 'url'>
-            & { details?: Maybe<{ image?: Maybe<Pick<ContentfulAssetFileDetailsImage, 'height' | 'width'>> }> }
-          )> }> }
-      ) }> } };
+export type GalleryQuery = { allContentfulGallery: { nodes: Array<GalleryPhotoFragment> } };
 
 export type GatsbyContentfulFixedFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

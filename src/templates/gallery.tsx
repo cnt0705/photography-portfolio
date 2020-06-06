@@ -19,7 +19,7 @@ type Props = {
 }
 
 const Template: React.FC<Props> = ({ data, pageContext }) => {
-  const photos = useGallery(data)
+  const photos = useGallery(data.allContentfulGallery.nodes)
 
   return (
     <Layout>
@@ -123,26 +123,25 @@ const gallery = css`
 `
 
 export const pageQuery = graphql`
+  fragment GalleryPhoto on ContentfulGallery {
+    photo {
+      fixed {
+        height
+        width
+        srcSet
+        src
+      }
+    }
+    id
+    title
+  }
+
   query Gallery($photographer: String) {
     allContentfulGallery(
       filter: { photographer: { name: { eq: $photographer } } }
     ) {
-      edges {
-        node {
-          id
-          title
-          photo {
-            file {
-              url
-              details {
-                image {
-                  height
-                  width
-                }
-              }
-            }
-          }
-        }
+      nodes {
+        ...GalleryPhoto
       }
     }
   }

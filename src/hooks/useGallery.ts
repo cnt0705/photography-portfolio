@@ -1,12 +1,13 @@
-import { GalleryQuery } from '../../types/graphql-types' // TODO: Path
+import { GalleryPhotoFragment } from '../../types/graphql-types'
 
-export const useGallery = (photos: GalleryQuery) => {
-  return photos.allContentfulGallery.edges.map(p => {
+export const useGallery = (photos: GalleryPhotoFragment[]) => {
+  return photos.map(p => {
     return {
-      alt: p.node.title ?? '',
-      src: p.node.photo?.file?.url ?? '',
-      width: p.node.photo?.file?.details?.image?.width ?? 0,
-      height: p.node.photo?.file?.details?.image?.height ?? 0,
+      alt: p.title ?? '',
+      src: p.photo?.fixed?.src ?? '',
+      srcSet: p.photo?.fixed?.srcSet ?? [],
+      width: p.photo?.fixed?.width ?? 0,
+      height: p.photo?.fixed?.height ?? 0,
     }
   })
 }

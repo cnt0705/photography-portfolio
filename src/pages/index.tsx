@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
 import BackgroundImage from 'gatsby-background-image'
@@ -9,7 +9,7 @@ import { mq } from 'styles/media-queries'
 import ShinyaKato from 'assets/sk.svg'
 import ChinatsuKato from 'assets/ck.svg'
 
-import { TopQuery, PhotoFragment } from '../../types/graphql-types' // TODO: Path
+import { TopQuery, TopPhotoFragment } from '../../types/graphql-types' // TODO: Path
 import { randomPick } from 'utils/random-pick'
 
 type Props = {
@@ -17,7 +17,10 @@ type Props = {
 }
 
 const Page: React.FC<Props> = ({ data }) => {
-  const { photo } = randomPick<PhotoFragment>(data.allContentfulTop.nodes)
+  const { photo } = useMemo(
+    () => randomPick<TopPhotoFragment>(data.allContentfulTop.nodes),
+    [data]
+  )
 
   return (
     <Layout>
@@ -86,7 +89,7 @@ const chinatsu = css`
 `
 
 export const pageQuery = graphql`
-  fragment Photo on ContentfulTop {
+  fragment TopPhoto on ContentfulTop {
     photo {
       fluid {
         src
@@ -100,7 +103,7 @@ export const pageQuery = graphql`
   query Top {
     allContentfulTop {
       nodes {
-        ...Photo
+        ...TopPhoto
       }
     }
   }
