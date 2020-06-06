@@ -1,12 +1,12 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
-import Gallery from 'react-photo-gallery'
 import { css } from '@emotion/core'
 
 import { Layout } from 'layouts'
-import { mq } from 'styles/media-queries'
 import SiteName from 'assets/sc.svg'
+import { PhotoGallery } from 'components/photo-gallery'
+import { mq } from 'styles/media-queries'
 
 import { GalleryQuery } from '../../types/graphql-types' // TODO: Path
 import { useGallery } from 'hooks/useGallery'
@@ -39,7 +39,7 @@ const Template: React.FC<Props> = ({ data, pageContext }) => {
             </a>
           </nav>
           <div css={gallery}>
-            <Gallery photos={photos} />
+            <PhotoGallery photos={photos} />
           </div>
         </div>
       </div>
