@@ -22,6 +22,7 @@
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-helmet": "^5.2.1",
+    "react-images": "^1.1.7",
     "react-photo-gallery": "^8.0.0"
   },
   "devDependencies": {
