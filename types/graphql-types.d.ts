@@ -3901,13 +3901,15 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>;
 };
 
+export type PhotoFragment = (
+  Pick<ContentfulTop, 'title'>
+  & { photo?: Maybe<{ file?: Maybe<Pick<ContentfulAssetFile, 'url'>> }> }
+);
+
 export type TopQueryVariables = {};
 
 
-export type TopQuery = { allContentfulTop: { nodes: Array<(
-      Pick<ContentfulTop, 'title'>
-      & { photo?: Maybe<{ file?: Maybe<Pick<ContentfulAssetFile, 'url'>> }> }
-    )> } };
+export type TopQuery = { allContentfulTop: { nodes: Array<PhotoFragment> } };
 
 export type GalleryQueryVariables = {
   photographer?: Maybe<Scalars['String']>;
