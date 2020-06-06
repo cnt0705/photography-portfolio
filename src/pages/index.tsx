@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
+import BackgroundImage from 'gatsby-background-image'
 import { css } from '@emotion/core'
 
 import { Layout } from 'layouts'
@@ -21,17 +22,16 @@ const Page: React.FC<Props> = ({ data }) => {
   return (
     <Layout>
       <div css={container}>
-        <div
-          css={image}
-          style={{ backgroundImage: `url(${photo?.file?.url})` }}
-        >
-          <Link to="/shinya/gallery" css={shinya}>
-            <ShinyaKato />
-          </Link>
-          <Link to="/chinatsu/gallery" css={chinatsu}>
-            <ChinatsuKato />
-          </Link>
-        </div>
+        {photo?.fluid && (
+          <BackgroundImage css={image} fluid={photo.fluid}>
+            <Link to="/shinya/gallery" css={shinya}>
+              <ShinyaKato />
+            </Link>
+            <Link to="/chinatsu/gallery" css={chinatsu}>
+              <ChinatsuKato />
+            </Link>
+          </BackgroundImage>
+        )}
       </div>
     </Layout>
   )
@@ -87,11 +87,13 @@ const chinatsu = css`
 
 export const pageQuery = graphql`
   fragment Photo on ContentfulTop {
-    title
     photo {
-      file {
-        url
+      fluid {
+        src
+        srcSet
+        aspectRatio
       }
+      title
     }
   }
 
