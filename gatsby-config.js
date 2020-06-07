@@ -25,6 +25,14 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Crimson Text'],
+        },
+      },
+    },
+    {
       resolve: 'gatsby-source-contentful',
       options: {
         spaceId: process.env.GATSBY_CONTENTFUL_SPACE_ID,

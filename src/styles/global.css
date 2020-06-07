@@ -3,9 +3,10 @@ html {
 }
 
 body {
+  line-height: 1.6;
   font-size: 1.6rem;
-  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN',
-    'Hiragino Sans', Meiryo, sans-serif;
+  font-family: 'Crimson Text', 'Helvetica Neue', Arial,
+    'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
 }
 
 a {

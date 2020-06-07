@@ -29,14 +29,15 @@ const Template: React.FC<Props> = ({ data, pageContext }) => {
             <Link to="/" css={siteTitle}>
               <SiteName />
             </Link>
-            <a
-              href={`https://www.instagram.com/${pageContext.instagram}`}
-              target="_blank"
-              rel="noopener"
-              css={photographer}
-            >
-              #{pageContext.photographer}Kato
-            </a>
+            <span css={andMore}>
+              <a
+                href={`https://www.instagram.com/${pageContext.instagram}`}
+                target="_blank"
+                rel="noopener"
+              >
+                #SeeMore{pageContext.photographer}sPortfolio
+              </a>
+            </span>
           </nav>
           <div css={gallery}>
             <PhotoGallery photos={photos} />
@@ -83,17 +84,12 @@ const containerInner = css`
 `
 
 const nav = css`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 50px 30px;
+  padding: 40px 30px;
   background-color: #fff;
   color: #888;
 
   ${mq.desktop} {
-    flex-direction: column;
-    align-items: flex-start;
-    width: 280px;
+    width: 300px;
     padding: 0 20px;
     background-color: inherit;
   }
@@ -103,9 +99,10 @@ const siteTitle = css`
   line-height: 1;
 `
 
-const photographer = css`
-  line-height: 1;
-  font-size: 1.8rem;
+const andMore = css`
+  display: block;
+  margin-top: 20px;
+  font-size: 1.6rem;
   letter-spacing: 2px;
 
   ${mq.desktop} {
