@@ -121,16 +121,14 @@ const gallery = css`
 
 export const pageQuery = graphql`
   fragment GalleryPhoto on ContentfulGallery {
+    title
     photo {
-      fixed {
-        height
-        width
-        srcSet
+      fluid {
         src
+        srcSet
+        aspectRatio
       }
     }
-    id
-    title
   }
 
   query Gallery($photographer: String) {

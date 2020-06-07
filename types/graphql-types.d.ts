@@ -811,6 +811,12 @@ export type ContentfulGalleryFieldsEnum =
   | 'photographer___name'
   | 'photographer___slug'
   | 'photographer___instagram'
+  | 'photographer___spaceId'
+  | 'photographer___contentful_id'
+  | 'photographer___createdAt'
+  | 'photographer___updatedAt'
+  | 'photographer___sys___revision'
+  | 'photographer___node_locale'
   | 'photographer___gallery'
   | 'photographer___gallery___id'
   | 'photographer___gallery___parent___id'
@@ -838,24 +844,18 @@ export type ContentfulGalleryFieldsEnum =
   | 'photographer___gallery___photographer___name'
   | 'photographer___gallery___photographer___slug'
   | 'photographer___gallery___photographer___instagram'
-  | 'photographer___gallery___photographer___gallery'
   | 'photographer___gallery___photographer___spaceId'
   | 'photographer___gallery___photographer___contentful_id'
   | 'photographer___gallery___photographer___createdAt'
   | 'photographer___gallery___photographer___updatedAt'
   | 'photographer___gallery___photographer___node_locale'
+  | 'photographer___gallery___photographer___gallery'
   | 'photographer___gallery___spaceId'
   | 'photographer___gallery___contentful_id'
   | 'photographer___gallery___createdAt'
   | 'photographer___gallery___updatedAt'
   | 'photographer___gallery___sys___revision'
   | 'photographer___gallery___node_locale'
-  | 'photographer___spaceId'
-  | 'photographer___contentful_id'
-  | 'photographer___createdAt'
-  | 'photographer___updatedAt'
-  | 'photographer___sys___revision'
-  | 'photographer___node_locale'
   | 'spaceId'
   | 'contentful_id'
   | 'createdAt'
@@ -960,13 +960,13 @@ export type ContentfulPhotographer = Node & {
   name?: Maybe<Scalars['String']>;
   slug?: Maybe<Scalars['String']>;
   instagram?: Maybe<Scalars['String']>;
-  gallery?: Maybe<Array<Maybe<ContentfulGallery>>>;
   spaceId?: Maybe<Scalars['String']>;
   contentful_id?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['Date']>;
   updatedAt?: Maybe<Scalars['Date']>;
   sys?: Maybe<ContentfulPhotographerSys>;
   node_locale?: Maybe<Scalars['String']>;
+  gallery?: Maybe<Array<Maybe<ContentfulGallery>>>;
 };
 
 
@@ -1102,6 +1102,16 @@ export type ContentfulPhotographerFieldsEnum =
   | 'name'
   | 'slug'
   | 'instagram'
+  | 'spaceId'
+  | 'contentful_id'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'sys___revision'
+  | 'sys___contentType___sys___type'
+  | 'sys___contentType___sys___linkType'
+  | 'sys___contentType___sys___id'
+  | 'sys___contentType___sys___contentful_id'
+  | 'node_locale'
   | 'gallery'
   | 'gallery___id'
   | 'gallery___parent___id'
@@ -1220,6 +1230,12 @@ export type ContentfulPhotographerFieldsEnum =
   | 'gallery___photographer___name'
   | 'gallery___photographer___slug'
   | 'gallery___photographer___instagram'
+  | 'gallery___photographer___spaceId'
+  | 'gallery___photographer___contentful_id'
+  | 'gallery___photographer___createdAt'
+  | 'gallery___photographer___updatedAt'
+  | 'gallery___photographer___sys___revision'
+  | 'gallery___photographer___node_locale'
   | 'gallery___photographer___gallery'
   | 'gallery___photographer___gallery___id'
   | 'gallery___photographer___gallery___children'
@@ -1229,28 +1245,12 @@ export type ContentfulPhotographerFieldsEnum =
   | 'gallery___photographer___gallery___createdAt'
   | 'gallery___photographer___gallery___updatedAt'
   | 'gallery___photographer___gallery___node_locale'
-  | 'gallery___photographer___spaceId'
-  | 'gallery___photographer___contentful_id'
-  | 'gallery___photographer___createdAt'
-  | 'gallery___photographer___updatedAt'
-  | 'gallery___photographer___sys___revision'
-  | 'gallery___photographer___node_locale'
   | 'gallery___spaceId'
   | 'gallery___contentful_id'
   | 'gallery___createdAt'
   | 'gallery___updatedAt'
   | 'gallery___sys___revision'
-  | 'gallery___node_locale'
-  | 'spaceId'
-  | 'contentful_id'
-  | 'createdAt'
-  | 'updatedAt'
-  | 'sys___revision'
-  | 'sys___contentType___sys___type'
-  | 'sys___contentType___sys___linkType'
-  | 'sys___contentType___sys___id'
-  | 'sys___contentType___sys___contentful_id'
-  | 'node_locale';
+  | 'gallery___node_locale';
 
 export type ContentfulPhotographerFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
@@ -1260,13 +1260,13 @@ export type ContentfulPhotographerFilterInput = {
   name?: Maybe<StringQueryOperatorInput>;
   slug?: Maybe<StringQueryOperatorInput>;
   instagram?: Maybe<StringQueryOperatorInput>;
-  gallery?: Maybe<ContentfulGalleryFilterListInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
   contentful_id?: Maybe<StringQueryOperatorInput>;
   createdAt?: Maybe<DateQueryOperatorInput>;
   updatedAt?: Maybe<DateQueryOperatorInput>;
   sys?: Maybe<ContentfulPhotographerSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
+  gallery?: Maybe<ContentfulGalleryFilterListInput>;
 };
 
 export type ContentfulPhotographerGroupConnection = {
@@ -2499,15 +2499,15 @@ export type QuerySitePageArgs = {
   internalComponentName?: Maybe<StringQueryOperatorInput>;
   componentChunkName?: Maybe<StringQueryOperatorInput>;
   matchPath?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
   context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
 };
 
 
@@ -2524,6 +2524,8 @@ export type QuerySiteArgs = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
   port?: Maybe<DateQueryOperatorInput>;
   host?: Maybe<StringQueryOperatorInput>;
+  polyfill?: Maybe<BooleanQueryOperatorInput>;
+  pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -2622,13 +2624,13 @@ export type QueryContentfulPhotographerArgs = {
   name?: Maybe<StringQueryOperatorInput>;
   slug?: Maybe<StringQueryOperatorInput>;
   instagram?: Maybe<StringQueryOperatorInput>;
-  gallery?: Maybe<ContentfulGalleryFilterListInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
   contentful_id?: Maybe<StringQueryOperatorInput>;
   createdAt?: Maybe<DateQueryOperatorInput>;
   updatedAt?: Maybe<DateQueryOperatorInput>;
   sys?: Maybe<ContentfulPhotographerSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
+  gallery?: Maybe<ContentfulGalleryFilterListInput>;
 };
 
 
@@ -2705,6 +2707,8 @@ export type Site = Node & {
   siteMetadata?: Maybe<SiteSiteMetadata>;
   port?: Maybe<Scalars['Date']>;
   host?: Maybe<Scalars['String']>;
+  polyfill?: Maybe<Scalars['Boolean']>;
+  pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
@@ -2913,6 +2917,8 @@ export type SiteFieldsEnum =
   | 'siteMetadata___title'
   | 'port'
   | 'host'
+  | 'polyfill'
+  | 'pathPrefix'
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -3005,6 +3011,8 @@ export type SiteFilterInput = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
   port?: Maybe<DateQueryOperatorInput>;
   host?: Maybe<StringQueryOperatorInput>;
+  polyfill?: Maybe<BooleanQueryOperatorInput>;
+  pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -3026,15 +3034,15 @@ export type SitePage = Node & {
   internalComponentName: Scalars['String'];
   componentChunkName: Scalars['String'];
   matchPath?: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
   isCreatedByStatefulCreatePages?: Maybe<Scalars['Boolean']>;
   context?: Maybe<SitePageContext>;
   pluginCreator?: Maybe<SitePlugin>;
   pluginCreatorId?: Maybe<Scalars['String']>;
   componentPath?: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
 };
 
 export type SitePageConnection = {
@@ -3080,78 +3088,6 @@ export type SitePageFieldsEnum =
   | 'internalComponentName'
   | 'componentChunkName'
   | 'matchPath'
-  | 'isCreatedByStatefulCreatePages'
-  | 'context___photographer'
-  | 'context___instagram'
-  | 'pluginCreator___id'
-  | 'pluginCreator___parent___id'
-  | 'pluginCreator___parent___parent___id'
-  | 'pluginCreator___parent___parent___children'
-  | 'pluginCreator___parent___children'
-  | 'pluginCreator___parent___children___id'
-  | 'pluginCreator___parent___children___children'
-  | 'pluginCreator___parent___internal___content'
-  | 'pluginCreator___parent___internal___contentDigest'
-  | 'pluginCreator___parent___internal___description'
-  | 'pluginCreator___parent___internal___fieldOwners'
-  | 'pluginCreator___parent___internal___ignoreType'
-  | 'pluginCreator___parent___internal___mediaType'
-  | 'pluginCreator___parent___internal___owner'
-  | 'pluginCreator___parent___internal___type'
-  | 'pluginCreator___children'
-  | 'pluginCreator___children___id'
-  | 'pluginCreator___children___parent___id'
-  | 'pluginCreator___children___parent___children'
-  | 'pluginCreator___children___children'
-  | 'pluginCreator___children___children___id'
-  | 'pluginCreator___children___children___children'
-  | 'pluginCreator___children___internal___content'
-  | 'pluginCreator___children___internal___contentDigest'
-  | 'pluginCreator___children___internal___description'
-  | 'pluginCreator___children___internal___fieldOwners'
-  | 'pluginCreator___children___internal___ignoreType'
-  | 'pluginCreator___children___internal___mediaType'
-  | 'pluginCreator___children___internal___owner'
-  | 'pluginCreator___children___internal___type'
-  | 'pluginCreator___internal___content'
-  | 'pluginCreator___internal___contentDigest'
-  | 'pluginCreator___internal___description'
-  | 'pluginCreator___internal___fieldOwners'
-  | 'pluginCreator___internal___ignoreType'
-  | 'pluginCreator___internal___mediaType'
-  | 'pluginCreator___internal___owner'
-  | 'pluginCreator___internal___type'
-  | 'pluginCreator___resolve'
-  | 'pluginCreator___name'
-  | 'pluginCreator___version'
-  | 'pluginCreator___pluginOptions___fileName'
-  | 'pluginCreator___pluginOptions___google___families'
-  | 'pluginCreator___pluginOptions___spaceId'
-  | 'pluginCreator___pluginOptions___accessToken'
-  | 'pluginCreator___pluginOptions___path'
-  | 'pluginCreator___pluginOptions___pathCheck'
-  | 'pluginCreator___nodeAPIs'
-  | 'pluginCreator___browserAPIs'
-  | 'pluginCreator___ssrAPIs'
-  | 'pluginCreator___pluginFilepath'
-  | 'pluginCreator___packageJson___name'
-  | 'pluginCreator___packageJson___description'
-  | 'pluginCreator___packageJson___version'
-  | 'pluginCreator___packageJson___main'
-  | 'pluginCreator___packageJson___author'
-  | 'pluginCreator___packageJson___license'
-  | 'pluginCreator___packageJson___dependencies'
-  | 'pluginCreator___packageJson___dependencies___name'
-  | 'pluginCreator___packageJson___dependencies___version'
-  | 'pluginCreator___packageJson___devDependencies'
-  | 'pluginCreator___packageJson___devDependencies___name'
-  | 'pluginCreator___packageJson___devDependencies___version'
-  | 'pluginCreator___packageJson___peerDependencies'
-  | 'pluginCreator___packageJson___peerDependencies___name'
-  | 'pluginCreator___packageJson___peerDependencies___version'
-  | 'pluginCreator___packageJson___keywords'
-  | 'pluginCreatorId'
-  | 'componentPath'
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -3237,7 +3173,79 @@ export type SitePageFieldsEnum =
   | 'internal___ignoreType'
   | 'internal___mediaType'
   | 'internal___owner'
-  | 'internal___type';
+  | 'internal___type'
+  | 'isCreatedByStatefulCreatePages'
+  | 'context___photographer'
+  | 'context___instagram'
+  | 'pluginCreator___id'
+  | 'pluginCreator___parent___id'
+  | 'pluginCreator___parent___parent___id'
+  | 'pluginCreator___parent___parent___children'
+  | 'pluginCreator___parent___children'
+  | 'pluginCreator___parent___children___id'
+  | 'pluginCreator___parent___children___children'
+  | 'pluginCreator___parent___internal___content'
+  | 'pluginCreator___parent___internal___contentDigest'
+  | 'pluginCreator___parent___internal___description'
+  | 'pluginCreator___parent___internal___fieldOwners'
+  | 'pluginCreator___parent___internal___ignoreType'
+  | 'pluginCreator___parent___internal___mediaType'
+  | 'pluginCreator___parent___internal___owner'
+  | 'pluginCreator___parent___internal___type'
+  | 'pluginCreator___children'
+  | 'pluginCreator___children___id'
+  | 'pluginCreator___children___parent___id'
+  | 'pluginCreator___children___parent___children'
+  | 'pluginCreator___children___children'
+  | 'pluginCreator___children___children___id'
+  | 'pluginCreator___children___children___children'
+  | 'pluginCreator___children___internal___content'
+  | 'pluginCreator___children___internal___contentDigest'
+  | 'pluginCreator___children___internal___description'
+  | 'pluginCreator___children___internal___fieldOwners'
+  | 'pluginCreator___children___internal___ignoreType'
+  | 'pluginCreator___children___internal___mediaType'
+  | 'pluginCreator___children___internal___owner'
+  | 'pluginCreator___children___internal___type'
+  | 'pluginCreator___internal___content'
+  | 'pluginCreator___internal___contentDigest'
+  | 'pluginCreator___internal___description'
+  | 'pluginCreator___internal___fieldOwners'
+  | 'pluginCreator___internal___ignoreType'
+  | 'pluginCreator___internal___mediaType'
+  | 'pluginCreator___internal___owner'
+  | 'pluginCreator___internal___type'
+  | 'pluginCreator___resolve'
+  | 'pluginCreator___name'
+  | 'pluginCreator___version'
+  | 'pluginCreator___pluginOptions___fileName'
+  | 'pluginCreator___pluginOptions___google___families'
+  | 'pluginCreator___pluginOptions___spaceId'
+  | 'pluginCreator___pluginOptions___accessToken'
+  | 'pluginCreator___pluginOptions___path'
+  | 'pluginCreator___pluginOptions___pathCheck'
+  | 'pluginCreator___nodeAPIs'
+  | 'pluginCreator___browserAPIs'
+  | 'pluginCreator___ssrAPIs'
+  | 'pluginCreator___pluginFilepath'
+  | 'pluginCreator___packageJson___name'
+  | 'pluginCreator___packageJson___description'
+  | 'pluginCreator___packageJson___version'
+  | 'pluginCreator___packageJson___main'
+  | 'pluginCreator___packageJson___author'
+  | 'pluginCreator___packageJson___license'
+  | 'pluginCreator___packageJson___dependencies'
+  | 'pluginCreator___packageJson___dependencies___name'
+  | 'pluginCreator___packageJson___dependencies___version'
+  | 'pluginCreator___packageJson___devDependencies'
+  | 'pluginCreator___packageJson___devDependencies___name'
+  | 'pluginCreator___packageJson___devDependencies___version'
+  | 'pluginCreator___packageJson___peerDependencies'
+  | 'pluginCreator___packageJson___peerDependencies___name'
+  | 'pluginCreator___packageJson___peerDependencies___version'
+  | 'pluginCreator___packageJson___keywords'
+  | 'pluginCreatorId'
+  | 'componentPath';
 
 export type SitePageFilterInput = {
   path?: Maybe<StringQueryOperatorInput>;
@@ -3245,15 +3253,15 @@ export type SitePageFilterInput = {
   internalComponentName?: Maybe<StringQueryOperatorInput>;
   componentChunkName?: Maybe<StringQueryOperatorInput>;
   matchPath?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
   context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
 };
 
 export type SitePageGroupConnection = {
@@ -3580,10 +3588,7 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>;
 };
 
-export type TopPhotoFragment = { photo?: Maybe<(
-    Pick<ContentfulAsset, 'title'>
-    & { fluid?: Maybe<Pick<ContentfulFluid, 'src' | 'srcSet' | 'aspectRatio'>> }
-  )> };
+export type TopPhotoFragment = { photo?: Maybe<{ fluid?: Maybe<Pick<ContentfulFluid, 'src' | 'srcSet' | 'aspectRatio'>> }> };
 
 export type TopQueryVariables = {};
 
@@ -3591,8 +3596,8 @@ export type TopQueryVariables = {};
 export type TopQuery = { allContentfulTop: { nodes: Array<TopPhotoFragment> } };
 
 export type GalleryPhotoFragment = (
-  Pick<ContentfulGallery, 'id' | 'title'>
-  & { photo?: Maybe<{ fixed?: Maybe<Pick<ContentfulFixed, 'height' | 'width' | 'srcSet' | 'src'>> }> }
+  Pick<ContentfulGallery, 'title'>
+  & { photo?: Maybe<{ fluid?: Maybe<Pick<ContentfulFluid, 'src' | 'srcSet' | 'aspectRatio'>> }> }
 );
 
 export type GalleryQueryVariables = {
