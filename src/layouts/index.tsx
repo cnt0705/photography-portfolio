@@ -6,8 +6,11 @@ export const Layout: React.FC<{}> = ({ children }) => (
     <Helmet
       title="SC PHOTOGRAPHY"
       meta={[
-        { name: 'description', content: 'SC PHOTOGRAPHY' },
-        { name: 'keywords', content: 'SC PHOTOGRAPHY' },
+        {
+          name: 'description',
+          content: 'We are photographers based in Japan.',
+        },
+        { name: 'keywords', content: 'photography, photo, picture, camera' },
       ]}
     />
     {children}
