@@ -4,10 +4,10 @@ import Helmet from 'react-helmet'
 export const Layout: React.FC<{}> = ({ children }) => (
   <>
     <Helmet
-      title="Kato Photography"
+      title="SC PHOTOGRAPHY"
       meta={[
-        { name: 'description', content: 'Kato Photography' },
-        { name: 'keywords', content: 'Kato Photography' },
+        { name: 'description', content: 'SC PHOTOGRAPHY' },
+        { name: 'keywords', content: 'SC PHOTOGRAPHY' },
       ]}
     />
     {children}

@@ -2,7 +2,7 @@ require('dotenv').config()
 
 module.exports = {
   siteMetadata: {
-    title: 'Kato Photography',
+    title: 'SC PHOTOGRAPHY',
   },
   plugins: [
     'gatsby-alias-imports',
