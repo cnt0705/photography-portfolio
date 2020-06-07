@@ -8,10 +8,9 @@ export const useGallery = (photos: GalleryPhotoFragment[]) => {
     () =>
       photos.map(p => ({
         alt: p.title ?? '',
-        src: p.photo?.fluid?.src ?? '',
-        srcSet: p.photo?.fluid?.srcSet ?? '',
-        width: p.photo?.fluid?.aspectRatio ?? 1,
-        height: 1,
+        src: p.photo?.file?.url ?? '',
+        width: p.photo?.file?.details?.image?.width ?? 0,
+        height: p.photo?.file?.details?.image?.height ?? 0,
       })),
     [photos]
   )

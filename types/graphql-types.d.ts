@@ -3597,7 +3597,10 @@ export type TopQuery = { allContentfulTop: { nodes: Array<TopPhotoFragment> } };
 
 export type GalleryPhotoFragment = (
   Pick<ContentfulGallery, 'title'>
-  & { photo?: Maybe<{ fluid?: Maybe<Pick<ContentfulFluid, 'src' | 'srcSet' | 'aspectRatio'>> }> }
+  & { photo?: Maybe<{ file?: Maybe<(
+      Pick<ContentfulAssetFile, 'url'>
+      & { details?: Maybe<{ image?: Maybe<Pick<ContentfulAssetFileDetailsImage, 'height' | 'width'>> }> }
+    )> }> }
 );
 
 export type GalleryQueryVariables = {
