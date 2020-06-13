@@ -3,21 +3,26 @@ import Gallery, { PhotoProps, RenderImageProps } from 'react-photo-gallery'
 import Carousel, { Modal, ModalGateway } from 'react-images'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import 'react-lazy-load-image-component/src/effects/blur.css'
+import { css } from '@emotion/core'
 
 type Props = {
   photos: PhotoProps[]
 }
 
-const imageRenderer = ({ photo, index }: RenderImageProps) => {
+const imageRenderer = ({ photo, index, onClick }: RenderImageProps) => {
   return (
-    <LazyLoadImage
-      alt={photo.alt}
-      effect="blur"
-      height={photo.height}
-      key={index}
-      src={photo.src}
-      width={photo.width}
-    />
+    onClick && (
+      <LazyLoadImage
+        alt={photo.alt}
+        css={image}
+        effect="blur"
+        height={photo.height}
+        key={index}
+        onClick={event => onClick(event, { index })}
+        src={photo.src}
+        width={photo.width}
+      />
+    )
   )
 }
 
@@ -58,3 +63,11 @@ export const PhotoGallery: React.FC<Props> = ({ photos }) => {
     </>
   )
 }
+
+const image = css`
+  padding: 2px;
+
+  &:hover {
+    cursor: pointer;
+  }
+`
