@@ -20,10 +20,14 @@ const NotFoundPage = () => (
           show={true}
           strokeWidth={1}
           type="box"
+          css={goBackHomeLink}
         >
-          <Link to="/">Go Back Home</Link>
+          Go Back Home
         </RoughNotation>
       )}
+      <Link to="/" css={goBackHomeLink}>
+        Go Back Home
+      </Link>
     </p>
   </div>
 )
@@ -48,6 +52,8 @@ const pageNotFound = css`
 `
 
 const goBackHome = css`
+  position: relative;
+  width: 170px;
   margin-top: 70px;
   font-size: 2.4rem;
 
@@ -55,6 +61,14 @@ const goBackHome = css`
     margin-top: 100px;
     font-size: 2.8rem;
   }
+`
+
+const goBackHomeLink = css`
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
 `
 
 export default NotFoundPage
