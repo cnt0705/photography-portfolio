@@ -9,24 +9,21 @@ import { mq } from 'styles/media-queries'
 import ShinyaKato from 'assets/sk.svg'
 import ChinatsuKato from 'assets/ck.svg'
 
-import { TopQuery, TopPhotoFragment } from '../../types/graphql-types' // TODO: Path
-import { randomPick } from 'utils/random-pick'
+import { TopQuery } from '../../types/graphql-types' // TODO: Path
+import { useTopPage } from 'hooks/useTopPage'
 
 type Props = {
   data: TopQuery
 }
 
 const Page: React.FC<Props> = ({ data }) => {
-  const { photo } = useMemo(
-    () => randomPick<TopPhotoFragment>(data.allContentfulTop.nodes),
-    [data]
-  )
+  const photo = useTopPage(data)
 
   return (
     <Layout>
       <div css={container}>
-        {photo?.fluid && (
-          <BackgroundImage css={image} fluid={photo.fluid}>
+        {photo && (
+          <BackgroundImage css={image} fluid={photo}>
             <Link to="/shinya/gallery" css={shinya}>
               <ShinyaKato />
             </Link>
@@ -89,7 +86,7 @@ const chinatsu = css`
 `
 
 export const pageQuery = graphql`
-  fragment TopPhoto on ContentfulTop {
+  fragment TopPhoto on ContentfulPhoto {
     photo {
       fluid {
         src
@@ -100,8 +97,8 @@ export const pageQuery = graphql`
   }
 
   query Top {
-    allContentfulTop {
-      nodes {
+    contentfulTop {
+      photos {
         ...TopPhoto
       }
     }

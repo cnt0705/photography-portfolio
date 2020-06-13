@@ -9,7 +9,7 @@ import { PhotoGallery } from 'components/photo-gallery'
 import { mq } from 'styles/media-queries'
 
 import { GalleryQuery } from '../../types/graphql-types' // TODO: Path
-import { useGallery } from 'hooks/useGallery'
+import { useGalleryPage } from 'hooks/useGalleryPage'
 
 type PageContext = { photographer: string; instagram: string }
 
@@ -19,7 +19,7 @@ type Props = {
 }
 
 const Template: React.FC<Props> = ({ data, pageContext }) => {
-  const photos = useGallery(data.allContentfulGallery.nodes)
+  const photos = useGalleryPage(data)
 
   return (
     <Layout>
@@ -39,9 +39,7 @@ const Template: React.FC<Props> = ({ data, pageContext }) => {
               </a>
             </span>
           </nav>
-          <div css={gallery}>
-            <PhotoGallery photos={photos} />
-          </div>
+          <div css={gallery}>{photos && <PhotoGallery photos={photos} />}</div>
         </div>
       </div>
     </Layout>
@@ -120,7 +118,7 @@ const gallery = css`
 `
 
 export const pageQuery = graphql`
-  fragment GalleryPhoto on ContentfulGallery {
+  fragment GalleryPhoto on ContentfulPhoto {
     title
     photo {
       file {
@@ -136,10 +134,8 @@ export const pageQuery = graphql`
   }
 
   query Gallery($photographer: String) {
-    allContentfulGallery(
-      filter: { photographer: { name: { eq: $photographer } } }
-    ) {
-      nodes {
+    contentfulGallery(photographer: { name: { eq: $photographer } }) {
+      photos {
         ...GalleryPhoto
       }
     }

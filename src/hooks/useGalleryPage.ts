@@ -1,12 +1,16 @@
 import { useMemo } from 'react'
 import { PhotoProps } from 'react-photo-gallery'
 
-import { GalleryPhotoFragment } from '../../types/graphql-types'
+import { GalleryQuery } from '../../types/graphql-types'
+import { isNonNullable } from 'utils/type-guard'
 
-export const useGallery = (photos: GalleryPhotoFragment[]) => {
+export const useGalleryPage = (data: GalleryQuery) => {
+  const photos = data.contentfulGallery?.photos
+  if (!photos) return undefined
+
   return useMemo<PhotoProps[]>(
     () =>
-      photos.map(p => ({
+      photos.filter(isNonNullable).map(p => ({
         alt: p.title ?? '',
         src: p.photo?.file?.url ?? '',
         width: p.photo?.file?.details?.image?.width ?? 0,
