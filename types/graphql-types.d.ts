@@ -811,12 +811,6 @@ export type ContentfulGalleryFieldsEnum =
   | 'photographer___name'
   | 'photographer___slug'
   | 'photographer___instagram'
-  | 'photographer___spaceId'
-  | 'photographer___contentful_id'
-  | 'photographer___createdAt'
-  | 'photographer___updatedAt'
-  | 'photographer___sys___revision'
-  | 'photographer___node_locale'
   | 'photographer___gallery'
   | 'photographer___gallery___id'
   | 'photographer___gallery___parent___id'
@@ -844,18 +838,24 @@ export type ContentfulGalleryFieldsEnum =
   | 'photographer___gallery___photographer___name'
   | 'photographer___gallery___photographer___slug'
   | 'photographer___gallery___photographer___instagram'
+  | 'photographer___gallery___photographer___gallery'
   | 'photographer___gallery___photographer___spaceId'
   | 'photographer___gallery___photographer___contentful_id'
   | 'photographer___gallery___photographer___createdAt'
   | 'photographer___gallery___photographer___updatedAt'
   | 'photographer___gallery___photographer___node_locale'
-  | 'photographer___gallery___photographer___gallery'
   | 'photographer___gallery___spaceId'
   | 'photographer___gallery___contentful_id'
   | 'photographer___gallery___createdAt'
   | 'photographer___gallery___updatedAt'
   | 'photographer___gallery___sys___revision'
   | 'photographer___gallery___node_locale'
+  | 'photographer___spaceId'
+  | 'photographer___contentful_id'
+  | 'photographer___createdAt'
+  | 'photographer___updatedAt'
+  | 'photographer___sys___revision'
+  | 'photographer___node_locale'
   | 'spaceId'
   | 'contentful_id'
   | 'createdAt'
@@ -960,13 +960,13 @@ export type ContentfulPhotographer = Node & {
   name?: Maybe<Scalars['String']>;
   slug?: Maybe<Scalars['String']>;
   instagram?: Maybe<Scalars['String']>;
+  gallery?: Maybe<Array<Maybe<ContentfulGallery>>>;
   spaceId?: Maybe<Scalars['String']>;
   contentful_id?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['Date']>;
   updatedAt?: Maybe<Scalars['Date']>;
   sys?: Maybe<ContentfulPhotographerSys>;
   node_locale?: Maybe<Scalars['String']>;
-  gallery?: Maybe<Array<Maybe<ContentfulGallery>>>;
 };
 
 
@@ -1102,16 +1102,6 @@ export type ContentfulPhotographerFieldsEnum =
   | 'name'
   | 'slug'
   | 'instagram'
-  | 'spaceId'
-  | 'contentful_id'
-  | 'createdAt'
-  | 'updatedAt'
-  | 'sys___revision'
-  | 'sys___contentType___sys___type'
-  | 'sys___contentType___sys___linkType'
-  | 'sys___contentType___sys___id'
-  | 'sys___contentType___sys___contentful_id'
-  | 'node_locale'
   | 'gallery'
   | 'gallery___id'
   | 'gallery___parent___id'
@@ -1230,12 +1220,6 @@ export type ContentfulPhotographerFieldsEnum =
   | 'gallery___photographer___name'
   | 'gallery___photographer___slug'
   | 'gallery___photographer___instagram'
-  | 'gallery___photographer___spaceId'
-  | 'gallery___photographer___contentful_id'
-  | 'gallery___photographer___createdAt'
-  | 'gallery___photographer___updatedAt'
-  | 'gallery___photographer___sys___revision'
-  | 'gallery___photographer___node_locale'
   | 'gallery___photographer___gallery'
   | 'gallery___photographer___gallery___id'
   | 'gallery___photographer___gallery___children'
@@ -1245,12 +1229,28 @@ export type ContentfulPhotographerFieldsEnum =
   | 'gallery___photographer___gallery___createdAt'
   | 'gallery___photographer___gallery___updatedAt'
   | 'gallery___photographer___gallery___node_locale'
+  | 'gallery___photographer___spaceId'
+  | 'gallery___photographer___contentful_id'
+  | 'gallery___photographer___createdAt'
+  | 'gallery___photographer___updatedAt'
+  | 'gallery___photographer___sys___revision'
+  | 'gallery___photographer___node_locale'
   | 'gallery___spaceId'
   | 'gallery___contentful_id'
   | 'gallery___createdAt'
   | 'gallery___updatedAt'
   | 'gallery___sys___revision'
-  | 'gallery___node_locale';
+  | 'gallery___node_locale'
+  | 'spaceId'
+  | 'contentful_id'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'sys___revision'
+  | 'sys___contentType___sys___type'
+  | 'sys___contentType___sys___linkType'
+  | 'sys___contentType___sys___id'
+  | 'sys___contentType___sys___contentful_id'
+  | 'node_locale';
 
 export type ContentfulPhotographerFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
@@ -1260,13 +1260,13 @@ export type ContentfulPhotographerFilterInput = {
   name?: Maybe<StringQueryOperatorInput>;
   slug?: Maybe<StringQueryOperatorInput>;
   instagram?: Maybe<StringQueryOperatorInput>;
+  gallery?: Maybe<ContentfulGalleryFilterListInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
   contentful_id?: Maybe<StringQueryOperatorInput>;
   createdAt?: Maybe<DateQueryOperatorInput>;
   updatedAt?: Maybe<DateQueryOperatorInput>;
   sys?: Maybe<ContentfulPhotographerSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
-  gallery?: Maybe<ContentfulGalleryFilterListInput>;
 };
 
 export type ContentfulPhotographerGroupConnection = {
@@ -2522,8 +2522,6 @@ export type QueryAllSitePageArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<DateQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -2624,13 +2622,13 @@ export type QueryContentfulPhotographerArgs = {
   name?: Maybe<StringQueryOperatorInput>;
   slug?: Maybe<StringQueryOperatorInput>;
   instagram?: Maybe<StringQueryOperatorInput>;
+  gallery?: Maybe<ContentfulGalleryFilterListInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
   contentful_id?: Maybe<StringQueryOperatorInput>;
   createdAt?: Maybe<DateQueryOperatorInput>;
   updatedAt?: Maybe<DateQueryOperatorInput>;
   sys?: Maybe<ContentfulPhotographerSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
-  gallery?: Maybe<ContentfulGalleryFilterListInput>;
 };
 
 
@@ -2705,8 +2703,6 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
-  port?: Maybe<Scalars['Date']>;
-  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -2717,14 +2713,6 @@ export type Site = Node & {
 
 
 export type SiteBuildTimeArgs = {
-  formatString?: Maybe<Scalars['String']>;
-  fromNow?: Maybe<Scalars['Boolean']>;
-  difference?: Maybe<Scalars['String']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type SitePortArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
@@ -2915,8 +2903,6 @@ export type SiteEdge = {
 export type SiteFieldsEnum = 
   | 'buildTime'
   | 'siteMetadata___title'
-  | 'port'
-  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -3009,8 +2995,6 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<DateQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;

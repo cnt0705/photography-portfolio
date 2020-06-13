@@ -12,15 +12,18 @@ const NotFoundPage = () => (
     <NotFound />
     <p css={pageNotFound}>Page Not Found</p>
     <p css={goBackHome}>
-      <RoughNotation
-        animationDelay={750}
-        padding={20}
-        show={true}
-        strokeWidth={1}
-        type="box"
-      >
-        <Link to="/">Go Back Home</Link>
-      </RoughNotation>
+      {// https://github.com/gatsbyjs/gatsby/issues/9214#issuecomment-431073612
+      RoughNotation && (
+        <RoughNotation
+          animationDelay={750}
+          padding={20}
+          show={true}
+          strokeWidth={1}
+          type="box"
+        >
+          <Link to="/">Go Back Home</Link>
+        </RoughNotation>
+      )}
     </p>
   </div>
 )
