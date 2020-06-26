@@ -12077,12 +12077,12 @@ react-remove-scroll@^2.3.0:
     use-callback-ref "^1.2.3"
     use-sidecar "^1.0.1"
 
-react-rough-notation@0.0.11:
-  version "0.0.11"
-  resolved "https://registry.yarnpkg.com/react-rough-notation/-/react-rough-notation-0.0.11.tgz#692a774c46411ed1182b7edd8d9f5753fa0c290b"
-  integrity sha512-MQ7gfYBS/ECMmmJWwjGQkkN63XSp36m7QvJ/4Riw6zllyrBLIZ8Gz2gA+PUMPmOiHl6tvKxw/xka55jkbDXCrA==
+react-rough-notation@0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/react-rough-notation/-/react-rough-notation-0.1.0.tgz#322be54d7073a398688fcbd38281dc8961a96308"
+  integrity sha512-WbwPaLwgKfSkkX8koLmcedezRBH0iq6b8RAyhdWcFjdA3OmDqzh39tNMxWHGwln/K4gQe6nH2hlhHpC0p2p2GQ==
   dependencies:
-    rough-notation "0.3.1"
+    rough-notation "^0.4.0"
 
 react-side-effect@^1.1.0:
   version "1.2.0"
@@ -12689,10 +12689,10 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
-rough-notation@0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/rough-notation/-/rough-notation-0.3.1.tgz#6f3865f43b0b63c3118f3be18d4c3267c30b50d3"
-  integrity sha512-WrUTmZa1CxuW2KdghcppZ7WBk7An/ty1bQ5kpYwl5YtXSBCEINa6NO7wx+pViO9TwlMqmIZuRxCJiWtYcIOK0w==
+rough-notation@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/rough-notation/-/rough-notation-0.4.0.tgz#6f97324cb50fc91ec8064219253aa2528a69210f"
+  integrity sha512-hDgn9qMIxWnfY+WWjt30aLMtDHR13H8r/NI3EQNdJiEFAzpklH5nKg4eH/thpxCWTYzyg8ueMsKIfz9MzOBQ4Q==
 
 run-async@^2.2.0, run-async@^2.4.0:
   version "2.4.1"
