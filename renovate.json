@@ -1,5 +1,15 @@
 {
   "extends": ["config:base"],
+  "packageRules": [
+    {
+      "depTypeList": ["dependencies"],
+      "groupName": "dependencies"
+    },
+    {
+      "depTypeList": ["devDependencies"],
+      "groupName": "devDependencies"
+    }
+  ],
   "schedule": ["every weekend"],
   "timezone": "Asia/Tokyo"
 }
