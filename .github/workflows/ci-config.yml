@@ -4,7 +4,7 @@ on: pull_request
 
 jobs:
   inspection:
-    name: Lint
+    name: Inspection
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -18,5 +18,5 @@ jobs:
       - name: Run lint
         run: yarn lint
 
-      - name: Run lint
+      - name: Run type checker
         run: yarn tsc
