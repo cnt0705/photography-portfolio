@@ -12,19 +12,21 @@ const NotFoundPage = () => (
     <NotFound />
     <p css={pageNotFound}>Page Not Found</p>
     <p css={goBackHome}>
-      {// https://github.com/gatsbyjs/gatsby/issues/9214#issuecomment-431073612
-      RoughNotation && (
-        <RoughNotation
-          animationDelay={750}
-          padding={20}
-          show={true}
-          strokeWidth={1}
-          type="box"
-          css={goBackHomeLink}
-        >
-          Go Back Home
-        </RoughNotation>
-      )}
+      {
+        // https://github.com/gatsbyjs/gatsby/issues/9214#issuecomment-431073612
+        RoughNotation && (
+          <RoughNotation
+            animationDelay={750}
+            padding={20}
+            show={true}
+            strokeWidth={1}
+            type="box"
+            css={goBackHomeLink}
+          >
+            Go Back Home
+          </RoughNotation>
+        )
+      }
       <Link to="/" css={goBackHomeLink}>
         Go Back Home
       </Link>
