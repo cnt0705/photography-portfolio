@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { PhotoProps } from 'react-photo-gallery'
 
-import { GalleryQuery } from '../../types/graphql-types'
+import { GalleryQuery } from '../../types/graphql'
 import { isNonNullable } from 'utils/type-guard'
 
 export const useGalleryPage = (data: GalleryQuery) => {

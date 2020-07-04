@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 
-import { TopQuery, TopPhotoFragment } from '../../types/graphql-types'
+import { TopQuery, TopPhotoFragment } from '../../types/graphql'
 import { isNonNullable } from 'utils/type-guard'
 import { randomPick } from 'utils/random-pick'
 

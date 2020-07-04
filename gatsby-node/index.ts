@@ -1,7 +1,7 @@
 import path from 'path'
 import { GatsbyNode } from 'gatsby'
 
-import { ContentfulPhotographerConnection } from '../types/graphql-types'
+import { ContentfulPhotographerConnection } from '../types/graphql'
 
 type GalleryTemplate = {
   allContentfulPhotographer: ContentfulPhotographerConnection

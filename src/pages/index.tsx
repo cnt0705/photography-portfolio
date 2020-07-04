@@ -9,7 +9,7 @@ import { mq } from 'styles/media-queries'
 import ShinyaKato from 'assets/sk.svg'
 import ChinatsuKato from 'assets/ck.svg'
 
-import { TopQuery } from '../../types/graphql-types' // TODO: Path
+import { TopQuery } from '../../types/graphql' // TODO: Path
 import { useTopPage } from 'hooks/useTopPage'
 
 type Props = {

@@ -2,4 +2,4 @@
 .eslintrc.js
 node_modules
 public
-types/graphql-types.d.ts
+types/graphql.d.ts

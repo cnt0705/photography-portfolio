@@ -8,7 +8,7 @@ import SiteName from 'assets/sc.svg'
 import { PhotoGallery } from 'components/photo-gallery'
 import { mq } from 'styles/media-queries'
 
-import { GalleryQuery } from '../../types/graphql-types' // TODO: Path
+import { GalleryQuery } from '../../types/graphql' // TODO: Path
 import { useGalleryPage } from 'hooks/useGalleryPage'
 
 type PageContext = { photographer: string; instagram: string }
