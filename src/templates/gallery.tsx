@@ -33,7 +33,7 @@ const Template: React.FC<Props> = ({ data, pageContext }) => {
               <a
                 href={`https://www.instagram.com/${pageContext.instagram}`}
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
               >
                 #SeeMore{pageContext.photographer}sPortfolio
               </a>

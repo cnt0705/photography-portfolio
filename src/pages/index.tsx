@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
 import BackgroundImage from 'gatsby-background-image'

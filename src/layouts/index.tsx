@@ -2,7 +2,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useContextMenu } from 'hooks/useContextMenu'
 
-export const Layout: React.FC<{}> = ({ children }) => {
+export const Layout: React.FC = ({ children }) => {
   const { disableContextMenu } = useContextMenu()
 
   return (
