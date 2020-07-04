@@ -16,7 +16,7 @@ const NotFoundPage = () => (
         // https://github.com/gatsbyjs/gatsby/issues/9214#issuecomment-431073612
         RoughNotation && (
           <RoughNotation
-            animationDelay={'hoge'}
+            animationDelay={750}
             padding={20}
             show={true}
             strokeWidth={1}
