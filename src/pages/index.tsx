@@ -4,13 +4,13 @@ import Link from 'gatsby-link'
 import BackgroundImage from 'gatsby-background-image'
 import { css } from '@emotion/core'
 
+import ChinatsuKato from 'assets/ck.svg'
+import ShinyaKato from 'assets/sk.svg'
+import { useTopPage } from 'hooks/useTopPage'
 import { Layout } from 'layouts'
 import { mq } from 'styles/media-queries'
-import ShinyaKato from 'assets/sk.svg'
-import ChinatsuKato from 'assets/ck.svg'
 
-import { TopQuery } from '../../types/graphql' // TODO: Path
-import { useTopPage } from 'hooks/useTopPage'
+import { TopQuery } from 'types/graphql'
 
 type Props = {
   data: TopQuery

@@ -1,8 +1,9 @@
 import { useMemo } from 'react'
 
-import { TopQuery, TopPhotoFragment } from '../../types/graphql'
 import { isNonNullable } from 'utils/type-guard'
 import { randomPick } from 'utils/random-pick'
+
+import { TopQuery, TopPhotoFragment } from 'types/graphql'
 
 export const useTopPage = (data: TopQuery) => {
   const photos = data.contentfulTop?.photos

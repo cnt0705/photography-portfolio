@@ -3,13 +3,13 @@ import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
 import { css } from '@emotion/core'
 
-import { Layout } from 'layouts'
 import SiteName from 'assets/sc.svg'
 import { PhotoGallery } from 'components/photo-gallery'
+import { useGalleryPage } from 'hooks/useGalleryPage'
+import { Layout } from 'layouts'
 import { mq } from 'styles/media-queries'
 
-import { GalleryQuery } from '../../types/graphql' // TODO: Path
-import { useGalleryPage } from 'hooks/useGalleryPage'
+import { GalleryQuery } from 'types/graphql'
 
 type PageContext = { photographer: string; instagram: string }
 

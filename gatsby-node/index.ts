@@ -1,7 +1,7 @@
 import path from 'path'
 import { GatsbyNode } from 'gatsby'
 
-import { ContentfulPhotographerConnection } from '../types/graphql'
+import { ContentfulPhotographerConnection } from 'types/graphql'
 
 type GalleryTemplate = {
   allContentfulPhotographer: ContentfulPhotographerConnection
@@ -22,7 +22,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
     throw new Error('Photographers are undefined')
   }
 
-  for (let p of photographers) {
+  for (const p of photographers) {
     if (!p) continue
 
     createPage({

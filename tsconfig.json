@@ -1,12 +1,16 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "esModuleInterop": true,
     "jsx": "react",
     "lib": ["dom", "es2015", "es2017"],
     "module": "commonjs",
     "noEmit": true,
     "noImplicitAny": true,
+    "paths": {
+      "*": ["src/*"],
+      "types/*": ["types/*"]
+    },
     "strict": true,
     "target": "esnext"
   },

@@ -1,8 +1,9 @@
 import { useMemo } from 'react'
 import { PhotoProps } from 'react-photo-gallery'
 
-import { GalleryQuery } from '../../types/graphql'
 import { isNonNullable } from 'utils/type-guard'
+
+import { GalleryQuery } from 'types/graphql'
 
 export const useGalleryPage = (data: GalleryQuery) => {
   const photos = data.contentfulGallery?.photos
