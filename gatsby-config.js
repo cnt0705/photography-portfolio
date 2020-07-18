@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 require('dotenv').config()
 
 module.exports = {
@@ -10,6 +11,12 @@ module.exports = {
     'gatsby-plugin-emotion',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-typescript',
+    {
+      resolve: 'gatsby-plugin-favicon',
+      options: {
+        logo: 'assets/favicon.png',
+      },
+    },
     {
       resolve: 'gatsby-plugin-graphql-codegen',
       options: {

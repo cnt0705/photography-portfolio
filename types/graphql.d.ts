@@ -4576,6 +4576,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___resolve'
   | 'pluginCreator___name'
   | 'pluginCreator___version'
+  | 'pluginCreator___pluginOptions___logo'
   | 'pluginCreator___pluginOptions___fileName'
   | 'pluginCreator___pluginOptions___google___families'
   | 'pluginCreator___pluginOptions___spaceId'
@@ -4769,6 +4770,7 @@ export type SitePluginFieldsEnum =
   | 'resolve'
   | 'name'
   | 'version'
+  | 'pluginOptions___logo'
   | 'pluginOptions___fileName'
   | 'pluginOptions___google___families'
   | 'pluginOptions___spaceId'
@@ -4890,6 +4892,7 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 };
 
 export type SitePluginPluginOptions = {
+  logo?: Maybe<Scalars['String']>;
   fileName?: Maybe<Scalars['String']>;
   google?: Maybe<SitePluginPluginOptionsGoogle>;
   spaceId?: Maybe<Scalars['String']>;
@@ -4899,6 +4902,7 @@ export type SitePluginPluginOptions = {
 };
 
 export type SitePluginPluginOptionsFilterInput = {
+  logo?: Maybe<StringQueryOperatorInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
   google?: Maybe<SitePluginPluginOptionsGoogleFilterInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
