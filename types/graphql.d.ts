@@ -38,10 +38,14 @@ export type ContentfulAsset = Node & {
   children: Array<Node>;
   internal: Internal;
   contentful_id?: Maybe<Scalars['String']>;
+  spaceId?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['Date']>;
+  updatedAt?: Maybe<Scalars['Date']>;
   file?: Maybe<ContentfulAssetFile>;
   title?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   node_locale?: Maybe<Scalars['String']>;
+  sys?: Maybe<ContentfulAssetSys>;
   fixed?: Maybe<ContentfulFixed>;
   /** @deprecated Resolutions was deprecated in Gatsby v2. It's been renamed to "fixed" https://example.com/write-docs-and-fix-this-example-link */
   resolutions?: Maybe<ContentfulResolutions>;
@@ -49,6 +53,22 @@ export type ContentfulAsset = Node & {
   /** @deprecated Sizes was deprecated in Gatsby v2. It's been renamed to "fluid" https://example.com/write-docs-and-fix-this-example-link */
   sizes?: Maybe<ContentfulSizes>;
   resize?: Maybe<ContentfulResize>;
+};
+
+
+export type ContentfulAssetCreatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type ContentfulAssetUpdatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
 };
 
 
@@ -224,6 +244,9 @@ export type ContentfulAssetFieldsEnum =
   | 'internal___owner'
   | 'internal___type'
   | 'contentful_id'
+  | 'spaceId'
+  | 'createdAt'
+  | 'updatedAt'
   | 'file___url'
   | 'file___details___size'
   | 'file___details___image___width'
@@ -233,6 +256,7 @@ export type ContentfulAssetFieldsEnum =
   | 'title'
   | 'description'
   | 'node_locale'
+  | 'sys___revision'
   | 'fixed___base64'
   | 'fixed___tracedSVG'
   | 'fixed___aspectRatio'
@@ -314,10 +338,14 @@ export type ContentfulAssetFilterInput = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   contentful_id?: Maybe<StringQueryOperatorInput>;
+  spaceId?: Maybe<StringQueryOperatorInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
   file?: Maybe<ContentfulAssetFileFilterInput>;
   title?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
+  sys?: Maybe<ContentfulAssetSysFilterInput>;
   fixed?: Maybe<ContentfulFixedFilterInput>;
   resolutions?: Maybe<ContentfulResolutionsFilterInput>;
   fluid?: Maybe<ContentfulFluidFilterInput>;
@@ -337,6 +365,14 @@ export type ContentfulAssetGroupConnection = {
 export type ContentfulAssetSortInput = {
   fields?: Maybe<Array<Maybe<ContentfulAssetFieldsEnum>>>;
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type ContentfulAssetSys = {
+  revision?: Maybe<Scalars['Int']>;
+};
+
+export type ContentfulAssetSysFilterInput = {
+  revision?: Maybe<IntQueryOperatorInput>;
 };
 
 export type ContentfulContentType = Node & {
@@ -739,12 +775,16 @@ export type ContentfulGalleryFieldsEnum =
   | 'photos___photo___internal___owner'
   | 'photos___photo___internal___type'
   | 'photos___photo___contentful_id'
+  | 'photos___photo___spaceId'
+  | 'photos___photo___createdAt'
+  | 'photos___photo___updatedAt'
   | 'photos___photo___file___url'
   | 'photos___photo___file___fileName'
   | 'photos___photo___file___contentType'
   | 'photos___photo___title'
   | 'photos___photo___description'
   | 'photos___photo___node_locale'
+  | 'photos___photo___sys___revision'
   | 'photos___photo___fixed___base64'
   | 'photos___photo___fixed___tracedSVG'
   | 'photos___photo___fixed___aspectRatio'
@@ -973,6 +1013,9 @@ export type ContentfulGalleryFieldsEnum =
   | 'photographer___photo___photo___id'
   | 'photographer___photo___photo___children'
   | 'photographer___photo___photo___contentful_id'
+  | 'photographer___photo___photo___spaceId'
+  | 'photographer___photo___photo___createdAt'
+  | 'photographer___photo___photo___updatedAt'
   | 'photographer___photo___photo___title'
   | 'photographer___photo___photo___description'
   | 'photographer___photo___photo___node_locale'
@@ -1349,6 +1392,9 @@ export type ContentfulPhotoFieldsEnum =
   | 'photo___internal___owner'
   | 'photo___internal___type'
   | 'photo___contentful_id'
+  | 'photo___spaceId'
+  | 'photo___createdAt'
+  | 'photo___updatedAt'
   | 'photo___file___url'
   | 'photo___file___details___size'
   | 'photo___file___fileName'
@@ -1356,6 +1402,7 @@ export type ContentfulPhotoFieldsEnum =
   | 'photo___title'
   | 'photo___description'
   | 'photo___node_locale'
+  | 'photo___sys___revision'
   | 'photo___fixed___base64'
   | 'photo___fixed___tracedSVG'
   | 'photo___fixed___aspectRatio'
@@ -1456,6 +1503,9 @@ export type ContentfulPhotoFieldsEnum =
   | 'photographer___photo___photo___id'
   | 'photographer___photo___photo___children'
   | 'photographer___photo___photo___contentful_id'
+  | 'photographer___photo___photo___spaceId'
+  | 'photographer___photo___photo___createdAt'
+  | 'photographer___photo___photo___updatedAt'
   | 'photographer___photo___photo___title'
   | 'photographer___photo___photo___description'
   | 'photographer___photo___photo___node_locale'
@@ -1607,6 +1657,9 @@ export type ContentfulPhotoFieldsEnum =
   | 'gallery___photos___photo___id'
   | 'gallery___photos___photo___children'
   | 'gallery___photos___photo___contentful_id'
+  | 'gallery___photos___photo___spaceId'
+  | 'gallery___photos___photo___createdAt'
+  | 'gallery___photos___photo___updatedAt'
   | 'gallery___photos___photo___title'
   | 'gallery___photos___photo___description'
   | 'gallery___photos___photo___node_locale'
@@ -1767,6 +1820,9 @@ export type ContentfulPhotoFieldsEnum =
   | 'top___photos___photo___id'
   | 'top___photos___photo___children'
   | 'top___photos___photo___contentful_id'
+  | 'top___photos___photo___spaceId'
+  | 'top___photos___photo___createdAt'
+  | 'top___photos___photo___updatedAt'
   | 'top___photos___photo___title'
   | 'top___photos___photo___description'
   | 'top___photos___photo___node_locale'
@@ -2043,12 +2099,16 @@ export type ContentfulPhotographerFieldsEnum =
   | 'photo___photo___internal___owner'
   | 'photo___photo___internal___type'
   | 'photo___photo___contentful_id'
+  | 'photo___photo___spaceId'
+  | 'photo___photo___createdAt'
+  | 'photo___photo___updatedAt'
   | 'photo___photo___file___url'
   | 'photo___photo___file___fileName'
   | 'photo___photo___file___contentType'
   | 'photo___photo___title'
   | 'photo___photo___description'
   | 'photo___photo___node_locale'
+  | 'photo___photo___sys___revision'
   | 'photo___photo___fixed___base64'
   | 'photo___photo___fixed___tracedSVG'
   | 'photo___photo___fixed___aspectRatio'
@@ -2276,6 +2336,9 @@ export type ContentfulPhotographerFieldsEnum =
   | 'gallery___photos___photo___id'
   | 'gallery___photos___photo___children'
   | 'gallery___photos___photo___contentful_id'
+  | 'gallery___photos___photo___spaceId'
+  | 'gallery___photos___photo___createdAt'
+  | 'gallery___photos___photo___updatedAt'
   | 'gallery___photos___photo___title'
   | 'gallery___photos___photo___description'
   | 'gallery___photos___photo___node_locale'
@@ -2761,12 +2824,16 @@ export type ContentfulTopFieldsEnum =
   | 'photos___photo___internal___owner'
   | 'photos___photo___internal___type'
   | 'photos___photo___contentful_id'
+  | 'photos___photo___spaceId'
+  | 'photos___photo___createdAt'
+  | 'photos___photo___updatedAt'
   | 'photos___photo___file___url'
   | 'photos___photo___file___fileName'
   | 'photos___photo___file___contentType'
   | 'photos___photo___title'
   | 'photos___photo___description'
   | 'photos___photo___node_locale'
+  | 'photos___photo___sys___revision'
   | 'photos___photo___fixed___base64'
   | 'photos___photo___fixed___tracedSVG'
   | 'photos___photo___fixed___aspectRatio'
@@ -3877,10 +3944,14 @@ export type QueryContentfulAssetArgs = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   contentful_id?: Maybe<StringQueryOperatorInput>;
+  spaceId?: Maybe<StringQueryOperatorInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
   file?: Maybe<ContentfulAssetFileFilterInput>;
   title?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
+  sys?: Maybe<ContentfulAssetSysFilterInput>;
   fixed?: Maybe<ContentfulFixedFilterInput>;
   resolutions?: Maybe<ContentfulResolutionsFilterInput>;
   fluid?: Maybe<ContentfulFluidFilterInput>;

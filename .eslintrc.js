@@ -1,4 +1,12 @@
 module.exports = {
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 2020,
+    sourceType: 'module',
+  },
   env: {
     browser: true,
     es2020: true,
@@ -12,15 +20,19 @@ module.exports = {
     'prettier/@typescript-eslint',
     'prettier/react',
   ],
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    project: './tsconfig.json',
-  },
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'react'],
   rules: {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'react/prop-types': 'off',
   },
+  overrides: [
+    {
+      files: ['*.js'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 'off',
+      },
+    },
+  ],
   settings: {
     react: {
       version: 'detect',

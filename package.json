@@ -3,7 +3,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "lint": "eslint '**/*.{ts,tsx}'",
     "start": "gatsby develop"
   },
   "dependencies": {
