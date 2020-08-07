@@ -55,13 +55,15 @@ const pageNotFound = css`
 
 const goBackHome = css`
   position: relative;
-  width: 170px;
+  width: 150px;
   margin-top: 70px;
   font-size: 2.4rem;
+  text-align: center;
 
   ${mq.desktop} {
+    width: 165px;
     margin-top: 100px;
-    font-size: 2.8rem;
+    font-size: 2.6rem;
   }
 `
 
