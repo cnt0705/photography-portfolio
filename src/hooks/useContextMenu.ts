@@ -8,8 +8,6 @@ export const useContextMenu = () => {
     []
   )
 
-  // console.log()
-
   return {
     disableContextMenu,
   }
