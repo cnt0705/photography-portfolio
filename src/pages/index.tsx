@@ -88,7 +88,7 @@ const chinatsu = css`
 export const pageQuery = graphql`
   fragment TopPhoto on ContentfulPhoto {
     photo {
-      fluid {
+      fluid(quality: 90) {
         src
         srcSet
         aspectRatio
