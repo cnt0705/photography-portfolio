@@ -6292,10 +6292,10 @@ destroy@~1.0.4:
   resolved "https://registry.yarnpkg.com/destroy/-/destroy-1.0.4.tgz#978857442c44749e4206613e37946205826abd80"
   integrity sha1-l4hXRCxEdJ5CBmE+N5RiBYJqvYA=
 
-destyle.css@1.0.15:
-  version "1.0.15"
-  resolved "https://registry.yarnpkg.com/destyle.css/-/destyle.css-1.0.15.tgz#32cb574ca0fc8d9c89443947f0a11beb6b5081cd"
-  integrity sha512-ZKuiTAf4Ha2/vsJvFk5oqxSNQiA2pPTskg3KJaVZb3fYf2/X2DYuib1rYvOhZr4mkIz+r+DvMlEvI1qxKLZUKg==
+destyle.css@2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/destyle.css/-/destyle.css-2.0.2.tgz#62ab5aff32ce527b7fa624aab36d1c11a86b6011"
+  integrity sha512-w2xDMPePSAdSuz0h7Ad0m4QITlF1iG4U+0C0Y6Z5w05IBUHYOP3p7QyiZcc3OY+NcJiXBPgfARUsc5zfCGoahA==
 
 detab@2.0.3, detab@^2.0.0:
   version "2.0.3"
@@ -13949,10 +13949,10 @@ react-remove-scroll@^2.3.0:
     use-callback-ref "^1.2.3"
     use-sidecar "^1.0.1"
 
-react-rough-notation@0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/react-rough-notation/-/react-rough-notation-0.1.1.tgz#bf2022f580655e079552f414f8403a60c3dd708c"
-  integrity sha512-Otu5j+anE9R90IaS4UoloPIy9841V51u0CMI+6xG5yZEWYmPHYHVPS5B50iFHIuOPgPDUqA2fVKNvglb4WKLHw==
+react-rough-notation@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-rough-notation/-/react-rough-notation-1.0.0.tgz#f5d9869e5cf1aa0c2d1824f7e8fd87ec6443efe6"
+  integrity sha512-hVEtwyQq7s+m45kXYq16esttphBC5ovdj4toySl6bfWG/MzwIyWAgtTdtV/ObMIjYx8gMkyho7TJLsH720FbTQ==
   dependencies:
     rough-notation "^0.4.0"
 

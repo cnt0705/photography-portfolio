@@ -9,7 +9,7 @@
   "dependencies": {
     "@emotion/core": "10.0.35",
     "@emotion/styled": "10.0.27",
-    "destyle.css": "1.0.15",
+    "destyle.css": "2.0.2",
     "dotenv": "8.2.0",
     "gatsby": "2.24.64",
     "gatsby-alias-imports": "1.0.4",
@@ -28,7 +28,7 @@
     "react-images": "1.1.7",
     "react-lazy-load-image-component": "1.5.0",
     "react-photo-gallery": "8.0.0",
-    "react-rough-notation": "0.1.1"
+    "react-rough-notation": "1.0.0"
   },
   "devDependencies": {
     "@types/node": "12.12.54",
