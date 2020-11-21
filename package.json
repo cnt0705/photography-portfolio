@@ -7,7 +7,7 @@
     "start": "gatsby develop"
   },
   "dependencies": {
-    "@emotion/core": "10.0.35",
+    "@emotion/react": "11.0.0",
     "@emotion/styled": "10.0.27",
     "destyle.css": "2.0.2",
     "dotenv": "8.2.0",

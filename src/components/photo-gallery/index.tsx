@@ -3,7 +3,7 @@ import Gallery, { PhotoProps, RenderImageProps } from 'react-photo-gallery'
 import Carousel, { Modal, ModalGateway } from 'react-images'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import 'react-lazy-load-image-component/src/effects/blur.css'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 
 type Props = {
   photos: PhotoProps[]

@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
 import BackgroundImage from 'gatsby-background-image'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 
 import ChinatsuKato from 'assets/ck.svg'
 import ShinyaKato from 'assets/sk.svg'
