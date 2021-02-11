@@ -7,14 +7,15 @@
     "start": "gatsby develop"
   },
   "dependencies": {
-    "@emotion/core": "10.1.1 ",
-    "@emotion/styled": "10.0.27",
+    "@emotion/core": "11.0.0",
+    "@emotion/react": "^11.1.5",
+    "@emotion/styled": "11.1.5",
     "destyle.css": "2.0.2",
     "dotenv": "8.2.0",
     "gatsby": "2.32.3",
     "gatsby-alias-imports": "1.0.6",
     "gatsby-background-image": "1.3.1",
-    "gatsby-plugin-emotion": "4.5.0",
+    "gatsby-plugin-emotion": "5.4.0",
     "gatsby-plugin-favicon": "3.1.6",
     "gatsby-plugin-graphql-codegen": "2.7.1",
     "gatsby-plugin-react-helmet": "3.10.0",
@@ -31,6 +32,7 @@
     "react-rough-notation": "1.0.1"
   },
   "devDependencies": {
+    "@emotion/eslint-plugin": "11.2.0",
     "@types/node": "12.19.16",
     "@types/react": "17.0.1",
     "@types/react-dom": "17.0.0",

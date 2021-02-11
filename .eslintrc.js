@@ -20,10 +20,12 @@ module.exports = {
     'prettier/@typescript-eslint',
     'prettier/react',
   ],
-  plugins: ['@typescript-eslint', 'react'],
+  plugins: ['@typescript-eslint', 'react', '@emotion'],
   rules: {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'react/prop-types': 'off',
+    '@emotion/jsx-import': 'error',
+    '@emotion/pkg-renaming': 'error',
   },
   overrides: [
     {
