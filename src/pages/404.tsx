@@ -1,6 +1,8 @@
+/** @jsx jsx */
+import { jsx } from '@emotion/react'
 import React from 'react'
 import Link from 'gatsby-link'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 
 import { RoughNotation } from 'react-rough-notation'
 
