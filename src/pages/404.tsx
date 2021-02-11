@@ -13,26 +13,24 @@ const NotFoundPage = () => (
   <div css={container}>
     <NotFound />
     <p css={pageNotFound}>Page Not Found</p>
-    <p css={goBackHome}>
+    <div css={goBackHome}>
       {
-        <RoughNotation
-          // FIXME:
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          animationDelay={750}
-          padding={20}
-          show={true}
-          strokeWidth={1}
-          type="box"
-          css={goBackHomeLink}
-        >
-          Go Back Home
-        </RoughNotation>
+        <div css={goBackHomeLink}>
+          <RoughNotation
+            animationDelay={750}
+            padding={20}
+            show={true}
+            strokeWidth={1}
+            type="box"
+          >
+            Go Back Home
+          </RoughNotation>
+        </div>
       }
       <Link to="/" css={goBackHomeLink}>
         Go Back Home
       </Link>
-    </p>
+    </div>
   </div>
 )
 
