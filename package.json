@@ -2,9 +2,14 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "start": "gatsby develop"
+    "lint": "run-p lint:*",
+    "lint:eslint": "eslint .",
+    "lint:prettier": "prettier --check .",
+    "fix": "run-s fix:prettier fix:eslint",
+    "fix:eslint": "yarn lint:eslint --fix",
+    "fix:prettier": "yarn lint:prettier --write",
+    "start": "gatsby develop",
+    "build": "gatsby build"
   },
   "dependencies": {
     "@emotion/core": "11.0.0",
