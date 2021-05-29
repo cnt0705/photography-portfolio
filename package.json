@@ -16,7 +16,7 @@
     "@emotion/react": "11.4.0",
     "@emotion/styled": "11.3.0",
     "destyle.css": "2.0.2",
-    "dotenv": "8.6.0",
+    "dotenv": "10.0.0",
     "gatsby": "3.6.1",
     "gatsby-alias-imports": "1.0.6",
     "gatsby-background-image": "1.5.3",
