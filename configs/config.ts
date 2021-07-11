@@ -12,6 +12,8 @@ export default {
     'gatsby-plugin-emotion',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-typescript',
+    'gatsby-plugin-image',
+    'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-plugin-favicon',
       options: {
