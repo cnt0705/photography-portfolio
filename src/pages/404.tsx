@@ -6,7 +6,7 @@ import { css } from '@emotion/react'
 
 import { RoughNotation } from 'react-rough-notation'
 
-import NotFound from 'assets/not-found.svg'
+import NotFound from 'images/not-found.svg'
 import { mq } from 'styles/media-queries'
 
 const NotFoundPage = () => (

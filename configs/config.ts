@@ -15,9 +15,15 @@ export default {
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     {
-      resolve: 'gatsby-plugin-favicon',
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        logo: 'assets/favicon.png',
+        name: 'SC PHOTOGRAPHY',
+        short_name: 'SCP',
+        start_url: '/',
+        background_color: '#111',
+        theme_color: '#111',
+        display: 'standalone',
+        icon: 'src/images/favicon.svg',
       },
     },
     {
@@ -30,7 +36,7 @@ export default {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
-          include: /assets/,
+          include: /images/,
         },
       },
     },

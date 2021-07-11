@@ -5,7 +5,7 @@ import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
 import { css } from '@emotion/react'
 
-import SiteName from 'assets/sc.svg'
+import SiteName from 'images/sc.svg'
 import { PhotoGallery } from 'components/photo-gallery'
 import { useGalleryPage } from 'hooks/useGalleryPage'
 import { Layout } from 'layouts'
