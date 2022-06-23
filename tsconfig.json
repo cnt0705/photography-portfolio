@@ -10,7 +10,8 @@
       "types/*": ["types/*"]
     },
     "strict": true,
-    "target": "esnext"
+    "target": "esnext",
+    "skipLibCheck": true
   },
   "exclude": ["node_modules", "public", ".cache"]
 }
