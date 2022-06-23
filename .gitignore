@@ -4,6 +4,7 @@ node_modules
 
 # Environment variables file
 .env*
+!.env.template
 
 # Code generator
 */__generated__
