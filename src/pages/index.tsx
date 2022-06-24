@@ -25,7 +25,7 @@ const Page: React.FC<Props> = ({ data }) => {
     <Layout>
       <div css={container}>
         {photo && (
-          <BackgroundImage css={image} fluid={photo}>
+          <BackgroundImage css={image} {...photo}>
             <Link to="/shinya/gallery" css={shinya}>
               <ShinyaKato />
             </Link>
@@ -90,11 +90,7 @@ const chinatsu = css`
 export const pageQuery = graphql`
   fragment TopPhoto on ContentfulPhoto {
     photo {
-      fluid(quality: 90) {
-        src
-        srcSet
-        aspectRatio
-      }
+      gatsbyImageData
     }
   }
 
