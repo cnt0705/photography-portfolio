@@ -1,7 +1,11 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react'
 import React, { useCallback, useState } from 'react'
-import Gallery, { PhotoProps, RenderImageProps } from 'react-photo-gallery'
+import Gallery, {
+  PhotoClickHandler,
+  PhotoProps,
+  RenderImageProps,
+} from 'react-photo-gallery'
 import Carousel, { Modal, ModalGateway } from 'react-images'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import 'react-lazy-load-image-component/src/effects/blur.css'
@@ -32,7 +36,7 @@ export const PhotoGallery: React.FC<Props> = ({ photos }) => {
   const [currentImage, setCurrentImage] = useState(0)
   const [viewerIsOpen, setViewerIsOpen] = useState(false)
 
-  const openLightbox = useCallback((_event, { index }) => {
+  const openLightbox = useCallback<PhotoClickHandler>((_event, { index }) => {
     setCurrentImage(index)
     setViewerIsOpen(true)
   }, [])
@@ -49,6 +53,8 @@ export const PhotoGallery: React.FC<Props> = ({ photos }) => {
         photos={photos}
         renderImage={imageRenderer}
       />
+      {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+      {/* @ts-ignore */}
       <ModalGateway>
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>
