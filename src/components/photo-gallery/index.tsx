@@ -53,7 +53,7 @@ export const PhotoGallery: React.FC<Props> = ({ photos }) => {
         photos={photos}
         renderImage={imageRenderer}
       />
-
+      {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
       {/* @ts-ignore */}
       <ModalGateway>
         {viewerIsOpen ? (
