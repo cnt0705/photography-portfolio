@@ -53,6 +53,8 @@ export const PhotoGallery: React.FC<Props> = ({ photos }) => {
         photos={photos}
         renderImage={imageRenderer}
       />
+
+      {/* @ts-ignore */}
       <ModalGateway>
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>
