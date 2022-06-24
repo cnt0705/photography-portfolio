@@ -10,7 +10,7 @@ export default {
     'gatsby-alias-imports',
     'gatsby-background-image',
     'gatsby-plugin-emotion',
-    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-react-helmet-async',
     'gatsby-plugin-typescript',
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
