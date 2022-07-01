@@ -17,7 +17,7 @@
     "@emotion/styled": "11.9.3",
     "destyle.css": "3.0.2",
     "dotenv": "16.0.1",
-    "gatsby": "4.17.1",
+    "gatsby": "4.17.2",
     "gatsby-alias-imports": "1.0.6",
     "gatsby-background-image": "1.6.0",
     "gatsby-plugin-emotion": "7.17.0",
